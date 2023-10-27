@@ -2,7 +2,10 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { FaSun, FaMoon } from "react-icons/fa";
+import { FaSun, FaMoon, FaCircle } from "react-icons/fa";
+
+const className =
+  "p-2 bg-buttons m-2 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-gray-700 dark:hover:text-white rounded-md";
 
 export default function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
@@ -13,12 +16,16 @@ export default function ThemeToggle() {
   }, []);
 
   if (!mounted) {
-    return null;
+    return (
+      <button className={className}>
+        <FaCircle />
+      </button>
+    );
   }
 
   return (
     <button
-      className="py-2 px-8 bg-buttons m-2"
+      className={className}
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
       {theme === "dark" ? <FaSun /> : <FaMoon />}

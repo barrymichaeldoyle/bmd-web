@@ -6,6 +6,7 @@ import { PropsWithChildren } from "react";
 import ThemeToggle from "@/components/ThemeToggle";
 import "../styles/globals.css";
 import { Providers } from "./providers";
+import { NavItem } from "@/components/NavItem";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,27 +23,26 @@ export default function RootLayout({ children }: PropsWithChildren) {
           <header className="bg-white dark:bg-black">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex justify-between items-center py-6 md:justify-start md:space-x-10">
-                <div className="flex items-center lg:w-0 lg:flex-1">
-                  <div className="flex justify-center items-center w-20 bg-black rounded-md border-2 border-white">
-                    <Image
-                      alt="BMD Logo"
-                      src="/bmd.jpeg"
-                      width={60}
-                      height={60}
-                    />
-                  </div>
-                  <h1 className="text-3xl font-bold leading-tight ml-4">
-                    Barry Michael Doyle
-                  </h1>
+                <div className="lg:w-0 lg:flex-1">
+                  <a className="flex items-center w-fit " href="/">
+                    <div className="flex justify-center items-center w-20 bg-black rounded-md border-2 border-white">
+                      <Image
+                        alt="BMD Logo"
+                        src="/bmd.png"
+                        width={60}
+                        height={60}
+                      />
+                    </div>
+                    <h1 className="text-3xl font-bold leading-tight mx-4">
+                      Barry Michael Doyle
+                    </h1>
+                  </a>
                 </div>
                 <nav className="md:flex space-x-10">
-                  <a href="/" className="text-base font-medium">
-                    Blog
-                  </a>
-                  <a href="/" className="text-base font-medium">
-                    Contact
-                  </a>
+                  <NavItem href="/blog">My Blog</NavItem>
+                  <NavItem href="/contact">Contact Me</NavItem>
                 </nav>
+
                 <ThemeToggle />
               </div>
             </div>
