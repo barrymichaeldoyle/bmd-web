@@ -4,5 +4,5 @@
 
 body,
 body * {
-  transition: background-color 500ms, color 50ms;
+  transition: background-color 500ms;
 }
