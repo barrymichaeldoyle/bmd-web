@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body,
+body * {
+  transition: background-color 500ms, color 50ms;
+}
