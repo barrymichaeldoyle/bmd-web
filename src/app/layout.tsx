@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Image from "next/image";
 import { PropsWithChildren } from "react";
 
+import ThemeToggle from "@/components/ThemeToggle";
 import "../styles/globals.css";
 import { Providers } from "./providers";
-import ThemeToggle from "@/components/ThemeToggle";
-import Image from "next/image";
 
 const inter = Inter({ subsets: ["latin"] });
 
