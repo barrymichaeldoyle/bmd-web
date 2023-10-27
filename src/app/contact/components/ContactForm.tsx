@@ -49,7 +49,7 @@ export function ContactForm() {
           className="mt-4 text-center text-green-600 dark:text-green-400"
           role="alert"
         >
-          Message sent successfully!
+          Message sent! I&apos;ll be in touch soon.
         </p>
         <div className="absolute inset-0">
           <Lottie animationData={confetti} loop={false} />
