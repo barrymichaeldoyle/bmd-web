@@ -16,7 +16,8 @@
         "type": "Text",
         "config": {
           "label": "Title",
-          "placeholder": "Blog Post Title"
+          "placeholder": "Blog Post Title",
+          "useAsTitle": true
         }
       },
       "content": {
