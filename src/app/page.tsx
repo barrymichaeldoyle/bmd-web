@@ -1,4 +1,3 @@
-import { StackOverflowFlair } from "@/components/StackOverflowFlair";
 import Image from "next/image";
 
 export default function Home() {

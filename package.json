@@ -6,9 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "slicemachine": "start-slicemachine"
   },
   "dependencies": {
+    "@prismicio/client": "latest",
+    "@prismicio/next": "latest",
+    "@prismicio/react": "latest",
     "install": "^0.13.0",
     "lottie-react": "^2.4.0",
     "next": "14.0.0",
@@ -20,6 +24,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@slicemachine/adapter-next": "latest",
     "@types/node": "^20",
     "@types/nodemailer": "^6.4.13",
     "@types/react": "^18",
@@ -28,6 +33,7 @@
     "eslint": "^8",
     "eslint-config-next": "14.0.0",
     "postcss": "^8",
+    "slice-machine-ui": "latest",
     "tailwindcss": "^3",
     "typescript": "^5"
   }
