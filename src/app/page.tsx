@@ -3,11 +3,11 @@ import Image from "next/image";
 export default function Home() {
   return (
     <>
-      <div className="bg-[#63FBB4] dark:bg-gray-900 mt-[-32px] mx-[-32px] py-12 mb-8 lg:mx-4 lg:rounded-lg">
+      <div className="bg-[#63FBB4] shadow-lg dark:bg-gray-900 mt-[-32px] mx-[-32px] py-12 mb-8 lg:mx-4 lg:rounded-lg">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center text-gray-900 dark:text-gray-100 leading-relaxed">
           Crafting Future-Ready
           <br />
-          Frontends
+          Frontends 🚀
         </h1>
       </div>
 
@@ -19,7 +19,7 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="flex flex-col md:flex-row md:items-start">
+          <div className="flex flex-col md:flex-row md:items-center">
             <div className="mb-4 md:mr-6 mx-auto md:mx-0">
               <Image
                 width={150}

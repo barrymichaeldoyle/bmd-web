@@ -1,6 +1,6 @@
 import { ContactForm } from "./components/ContactForm";
 
-export default function Contact() {
+export default function ContactPage() {
   return (
     <div className="relative shadow max-w-md w-full mx-auto bg-white dark:bg-gray-800 p-8 border border-gray-200 dark:border-gray-600 rounded-lg">
       <h2 className="text-3xl font-extrabold mb-4 text-gray-800 dark:text-white">

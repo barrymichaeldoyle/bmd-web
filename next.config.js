@@ -4,7 +4,12 @@ const nextConfig = {
     taint: true,
   },
   images: {
-    domains: ["stackoverflow.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "stackoverflow.com",
+      },
+    ],
   },
 };
 

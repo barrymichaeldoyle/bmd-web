@@ -2,6 +2,4 @@
 
 import dynamic from "next/dynamic";
 
-export const components = {
-  title: dynamic(() => import("./Title")),
-};
+export const components = {};

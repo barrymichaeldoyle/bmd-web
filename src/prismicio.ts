@@ -1,11 +1,10 @@
 import * as prismic from "@prismicio/client";
 import * as prismicNext from "@prismicio/next";
-import config from "../slicemachine.config.json";
 
 /**
  * The project's Prismic repository name.
  */
-export const repositoryName = config.repositoryName;
+export const repositoryName = process.env.PRISMIC_REPOSITORY;
 
 /**
  * A list of Route Resolver objects that define how a document's `url` field is resolved.
@@ -31,7 +30,13 @@ const routes: prismic.ClientConfig["routes"] = [
  *
  * @param config - Configuration for the Prismic client.
  */
-export const createClient = (config: prismicNext.CreateClientConfig = {}) => {
+export function createClient(config: prismicNext.CreateClientConfig = {}) {
+  if (!repositoryName) {
+    throw new Error(
+      "The PRISMIC_REPOSITORY environment variable is required but was missing.",
+    );
+  }
+
   const client = prismic.createClient(repositoryName, {
     routes,
     fetchOptions:
@@ -48,4 +53,4 @@ export const createClient = (config: prismicNext.CreateClientConfig = {}) => {
   });
 
   return client;
-};
+}

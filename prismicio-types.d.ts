@@ -93,33 +93,6 @@ export type BlogPostDocument<Lang extends string = string> =
 
 export type AllDocumentTypes = BlogPostDocument;
 
-/**
- * Default variation for Title Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type TitleSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Record<string, never>,
-  never
->;
-
-/**
- * Slice variation for *Title*
- */
-type TitleSliceVariation = TitleSliceDefault;
-
-/**
- * Title Shared Slice
- *
- * - **API ID**: `title`
- * - **Description**: Title
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type TitleSlice = prismic.SharedSlice<"title", TitleSliceVariation>;
-
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -134,9 +107,6 @@ declare module "@prismicio/client" {
       BlogPostDocumentData,
       BlogPostDocumentDataSlicesSlice,
       AllDocumentTypes,
-      TitleSlice,
-      TitleSliceVariation,
-      TitleSliceDefault,
     };
   }
 }
