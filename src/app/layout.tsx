@@ -1,3 +1,4 @@
+import { GeistSans } from "geist/font";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Image from "next/image";
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={GeistSans.className} suppressHydrationWarning>
       <body
         className={`${inter.className} font-sans bg-gray-100 dark:bg-black`}
       >
@@ -46,9 +47,9 @@ export default function RootLayout({ children }: PropsWithChildren) {
                 </div>
                 <div className="flex items-center">
                   <nav className="md:flex space-x-2">
-                    <NavItem href="/blog">
+                    {/* <NavItem href="/blog">
                       <span className="hidden lg:inline">My </span>Blog
-                    </NavItem>
+                    </NavItem> */}
                     <NavItem href="/contact">
                       Contact<span className="hidden lg:inline"> Me</span>
                     </NavItem>

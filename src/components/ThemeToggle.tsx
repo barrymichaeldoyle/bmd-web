@@ -2,8 +2,7 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { FaSun, FaMoon } from "react-icons/fa";
-import { TbFidgetSpinner } from "react-icons/tb";
+import { FaSun, FaMoon, FaCircle } from "react-icons/fa";
 
 const className =
   "p-2 bg-buttons m-2 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-gray-700 dark:hover:text-white rounded-md";
@@ -22,9 +21,9 @@ export default function ThemeToggle() {
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
       {!isMounted ? (
-        <TbFidgetSpinner className="animate-spin" />
+        <FaCircle />
       ) : theme === "dark" ? (
-        <FaSun />
+        <FaSun suppressHydrationWarning />
       ) : (
         <FaMoon />
       )}
