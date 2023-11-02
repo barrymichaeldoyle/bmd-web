@@ -19,6 +19,7 @@ export default function ThemeToggle() {
     <button
       className={className}
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      aria-label="Theme Toggle"
     >
       {!isMounted ? (
         <FaCircle />
