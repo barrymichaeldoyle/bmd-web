@@ -10,6 +10,7 @@ import ThemeToggle from "@/components/ThemeToggle";
 import "../styles/globals.css";
 
 import { Providers } from "./providers";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,7 +30,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex justify-between items-center py-6">
                 <div className="lg:w-0 lg:flex-1">
-                  <a className="flex items-center w-fit" href="/">
+                  <Link className="flex items-center w-fit" href="/">
                     <div className="flex justify-center items-center bg-black rounded-md">
                       <Image
                         alt="BMD Logo"
@@ -43,7 +44,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
                     <h1 className="hidden md:block text-xl md:text-3xl lg:text-4xl font-bold leading-tight mx-4">
                       Barry Michael Doyle
                     </h1>
-                  </a>
+                  </Link>
                 </div>
                 <div className="flex items-center">
                   <nav className="md:flex space-x-2">
