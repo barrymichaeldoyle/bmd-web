@@ -2,6 +2,7 @@ import { GeistSans } from "geist/font";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Image from "next/image";
+import Link from "next/link";
 import { PropsWithChildren } from "react";
 
 import { NavItem } from "@/components/NavItem";
@@ -10,7 +11,6 @@ import ThemeToggle from "@/components/ThemeToggle";
 import "../styles/globals.css";
 
 import { Providers } from "./providers";
-import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
