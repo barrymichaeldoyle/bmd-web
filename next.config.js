@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    taint: true,
-  },
+  // experimental: {
+  //   taint: true,
+  // },
   images: {
     remotePatterns: [
       {
