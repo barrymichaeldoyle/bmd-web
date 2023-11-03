@@ -1,11 +1,13 @@
 "use client";
 
-import Lottie from "lottie-react";
+import dynamic from "next/dynamic";
 import { useFormState } from "react-dom";
 
 import { submit } from "../actions";
 import { SubmitButton } from "./SubmitButton";
 import confetti from "./confetti.json";
+
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 const classNames = {
   label: "block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2",
