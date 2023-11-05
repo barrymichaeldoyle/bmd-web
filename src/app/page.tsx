@@ -26,9 +26,8 @@ export default function Home() {
                 height={150}
                 src="/profile.png"
                 alt="Barry Michael Doyle Profile Picture"
-                className="rounded-full border-4"
+                className="rounded-full border-4 border-[#63FBB4] shadow-md"
                 priority
-                style={{ borderColor: "#63FBB4" }}
               />
             </div>
 

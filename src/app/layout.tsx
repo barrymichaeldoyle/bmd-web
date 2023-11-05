@@ -23,10 +23,10 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en" className={GeistSans.className} suppressHydrationWarning>
       <body
-        className={`${inter.className} font-sans bg-gray-100 dark:bg-black`}
+        className={`${inter.className} font-sans bg-green-100 dark:bg-black`}
       >
         <Providers>
-          <header className="bg-gray-100 dark:bg-black">
+          <header className="bg-green-100 dark:bg-black">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex justify-between items-center py-6">
                 <div className="lg:w-0 lg:flex-1">
@@ -48,9 +48,9 @@ export default function RootLayout({ children }: PropsWithChildren) {
                 </div>
                 <div className="flex items-center">
                   <nav className="md:flex space-x-2">
-                    {/* <NavItem href="/blog">
+                    <NavItem href="/blog">
                       <span className="hidden lg:inline">My </span>Blog
-                    </NavItem> */}
+                    </NavItem>
                     <NavItem href="/contact">
                       Contact<span className="hidden lg:inline"> Me</span>
                     </NavItem>

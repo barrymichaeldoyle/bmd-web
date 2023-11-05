@@ -4,8 +4,8 @@ import dynamic from "next/dynamic";
 import { useFormState } from "react-dom";
 
 import { submit } from "../actions";
-import { SubmitButton } from "./SubmitButton";
 import confetti from "./confetti.json";
+import { SubmitButton } from "./SubmitButton";
 
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
