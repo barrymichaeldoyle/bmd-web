@@ -43,6 +43,7 @@ export function createClient(config: prismicNext.CreateClientConfig = {}) {
       process.env.NODE_ENV === "production"
         ? { next: { tags: ["prismic"] }, cache: "force-cache" }
         : { next: { revalidate: 5 } },
+    accessToken: process.env.PRISMIC_ACCESS_TOKEN,
     ...config,
   });
 
