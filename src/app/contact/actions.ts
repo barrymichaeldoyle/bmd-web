@@ -36,7 +36,7 @@ export async function submit(_prevState: any, formData: FormData) {
 
     try {
       await transporter.sendMail(mailOptions);
-      console.log("Email sent successfully");
+      console.info("Email sent successfully");
       return { success: true };
     } catch (error) {
       return { message: "Failed to send message" };
@@ -50,7 +50,7 @@ export async function submit(_prevState: any, formData: FormData) {
           acc[currError.path[0]] = currError.message;
           return acc;
         },
-        {}
+        {},
       );
 
       return { fieldErrors };

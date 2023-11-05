@@ -13,7 +13,6 @@ async function getBlogPost(uid: string) {
   "use server";
   try {
     const post = await createClient().getByUID("blog_post", uid, {});
-    console.log({ post });
     return {
       markdown: asText(post.data.content, { separator: "\n" }),
       firstPublicationDate: post.first_publication_date,
