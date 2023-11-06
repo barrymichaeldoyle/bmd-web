@@ -8,6 +8,7 @@ import { customRenderers } from "./customRenderers";
 import { formatDate } from "./utils";
 import { Tag } from "@/components/tag";
 import Image from "next/image";
+import { Title } from "./Title";
 
 async function getBlogPost(uid: string) {
   "use server";
@@ -69,9 +70,9 @@ export default async function BlogPostPage({
           </div>
         </div>
 
-        <h1 className="text-3xl font-bold my-4">{title}</h1>
+        {title && <Title title={title} />}
         <div className="my-4">
-          {tags.map((tag, index) => (
+          {tags.map((tag) => (
             <Tag key={tag} tag={tag} />
           ))}
         </div>

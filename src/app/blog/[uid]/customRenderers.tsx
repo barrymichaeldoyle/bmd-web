@@ -1,3 +1,4 @@
+import { InlineCodeBlock } from "@/components/InlineCodeBlock";
 import { Components } from "react-markdown";
 import { Prism } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
@@ -26,7 +27,7 @@ export const customRenderers: Components = {
         {String(children).replace(/\n$/, "")}
       </Prism>
     ) : (
-      <code className={className}>{children}</code>
+      <InlineCodeBlock>{children}</InlineCodeBlock>
     );
   },
   ol({ node, children, ...props }) {
