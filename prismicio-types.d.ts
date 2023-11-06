@@ -33,6 +33,17 @@ interface BlogPostDocumentData {
   content: prismic.RichTextField;
 
   /**
+   * Cover Image field in *Blog Post*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.cover_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  cover_image: prismic.ImageField<never>;
+
+  /**
    * Slice Zone field in *Blog Post*
    *
    * - **Field Type**: Slice Zone
