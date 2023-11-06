@@ -1,4 +1,23 @@
+import { Metadata } from "next";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Barry Michael Doyle | Lead React & Frontend Engineer",
+  description:
+    "Barry Michael Doyle - Lead Frontend Engineer specializing in React, React Native, and NextJS. Discover cutting-edge front-end development, mentorship, and tech insights.",
+  keywords: [
+    "Barry Michael Doyle",
+    "React Developer",
+    "Frontend Engineer",
+    "React Native",
+    "NextJS",
+    "TypeScript",
+    "Mentorship",
+    "Tech Blog",
+    "Software Engineering",
+    "Open Source",
+  ],
+};
 
 export default function Home() {
   return (
