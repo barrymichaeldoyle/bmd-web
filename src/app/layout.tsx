@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import { GeistSans } from "geist/font";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -64,6 +65,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
             {children}
           </main>
         </Providers>
+        <Analytics />
       </body>
     </html>
   );

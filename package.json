@@ -13,6 +13,7 @@
     "@prismicio/client": "latest",
     "@prismicio/next": "latest",
     "@prismicio/react": "latest",
+    "@vercel/analytics": "^1.1.1",
     "geist": "^1.0.0",
     "install": "^0.13.0",
     "lottie-react": "^2.4.0",
