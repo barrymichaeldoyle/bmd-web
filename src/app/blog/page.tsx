@@ -4,6 +4,13 @@ import Link from "next/link";
 
 import { renderTitle } from "./renderTitle";
 import { formatDate } from "./[uid]/utils";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Programming Blog - Code & Insights | Barry Michael Doyle",
+  description:
+    "Join me on a coding journey! Discover programming tutorials, tech reviews, and industry insights on my blog. Perfect for developers of all levels.",
+};
 
 async function getAllBlogPosts() {
   "use server";

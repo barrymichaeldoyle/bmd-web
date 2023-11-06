@@ -1,4 +1,12 @@
+import { Metadata } from "next";
+
 import { ContactForm } from "./components/ContactForm";
+
+export const metadata: Metadata = {
+  title: "Contact - Barry Michael Doyle",
+  description:
+    "Reach out to discuss projects, collaborations, or job opportunities. Let's connect and explore possibilities together.",
+};
 
 export default function ContactPage() {
   return (
