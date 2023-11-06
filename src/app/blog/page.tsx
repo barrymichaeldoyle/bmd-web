@@ -1,11 +1,12 @@
-import { Tag } from "@/components/Tag";
-import { createClient } from "@/prismicio";
+import { Metadata } from "next";
 import Link from "next/link";
 
-import { renderTitle } from "./renderTitle";
-import { formatDate } from "./[uid]/utils";
-import { Metadata } from "next";
 import { Card } from "@/components/Card";
+import { Tag } from "@/components/Tag";
+import { createClient } from "@/prismicio";
+
+import { renderTitle } from "./renderTitle";
+import { formatDate } from "./utils";
 
 export const metadata: Metadata = {
   title: "Programming Blog - Code & Insights | Barry Michael Doyle",

@@ -1,18 +1,18 @@
 import { asText } from "@prismicio/client";
 import { Metadata, ResolvingMetadata } from "next";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 
+import { Card } from "@/components/Card";
 import { Tag } from "@/components/Tag";
 import { createClient } from "@/prismicio";
 
+import { formatDate } from "../utils";
 import { customRenderers } from "./customRenderers";
-import { formatDate } from "./utils";
 import { Title } from "./Title";
-import { notFound } from "next/navigation";
-import { Card } from "@/components/Card";
 
 type BlogPostpageParams = { params: { uid: string } };
 
