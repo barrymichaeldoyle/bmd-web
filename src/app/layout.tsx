@@ -6,13 +6,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { PropsWithChildren } from "react";
 
+import { FooterLink } from "@/components/FooterLink";
 import { NavItem } from "@/components/NavItem";
 import ThemeToggle from "@/components/ThemeToggle";
 
 import "../styles/globals.css";
 
 import { Providers } from "./providers";
-import { FooterLink } from "@/components/FooterLink";
 
 const inter = Inter({ subsets: ["latin"] });
 
