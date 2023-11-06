@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { FaSun, FaMoon, FaCircle } from "react-icons/fa";
 
 const className =
-  "px-4 py-3 bg-buttons ml-2 dark:hover:bg-gray-700 dark:hover:text-white rounded-md hover:bg-white hover:shadow-md transition";
+  "px-4 py-3 bg-buttons ml-2 border-transparent border-2 hover:border-primary dark:hover:bg-gray-700 dark:hover:text-white rounded-md hover:bg-white hover:shadow-md transition";
 
 export default function ThemeToggle() {
   const { theme, setTheme } = useTheme();

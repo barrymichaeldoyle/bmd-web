@@ -15,7 +15,7 @@ export function NavItem({ children, href }: PropsWithChildren<NavItemProps>) {
   return (
     <Link
       href={href}
-      className={`px-4 py-2 text-base font-medium border-2 hover:bg-white hover:shadow-md dark:hover:bg-gray-700 dark:hover:text-white rounded-md transition
+      className={`px-4 py-2 text-base font-medium border-2 hover:bg-white hover:shadow-md hover:border-primary dark:hover:bg-gray-700 dark:hover:border-primary dark:hover:text-white rounded-md transition
         ${isActive ? "border-black dark:border-white" : "border-transparent"}`}
     >
       {children}

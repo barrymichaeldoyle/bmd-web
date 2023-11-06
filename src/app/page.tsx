@@ -1,3 +1,4 @@
+import { Card } from "@/components/Card";
 import { Metadata } from "next";
 import Image from "next/image";
 
@@ -31,7 +32,7 @@ export default function Home() {
       </div>
 
       <div className="container mx-auto px-4">
-        <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 mb-8">
+        <Card>
           <div className="text-center">
             <h2 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">
               About Me
@@ -95,7 +96,7 @@ export default function Home() {
               build groundbreaking digital solutions together!
             </p>
           </div>
-        </div>
+        </Card>
       </div>
     </>
   );

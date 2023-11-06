@@ -11,6 +11,8 @@ import { createClient } from "@/prismicio";
 import { customRenderers } from "./customRenderers";
 import { formatDate } from "./utils";
 import { Title } from "./Title";
+import { notFound } from "next/navigation";
+import { Card } from "@/components/Card";
 
 type BlogPostpageParams = { params: { uid: string } };
 
@@ -26,7 +28,7 @@ async function getBlogPost(uid: string) {
       title: post.data.title,
     };
   } catch (e) {
-    throw new Error("Failed to fetch blog post");
+    return notFound();
   }
 }
 
@@ -57,7 +59,7 @@ export async function generateMetadata(
 
     return { title, description };
   } catch (e) {
-    throw new Error("Failed to generate metadata for blog post");
+    return {};
   }
 }
 
@@ -67,7 +69,7 @@ export default async function BlogPostPage({ params }: BlogPostpageParams) {
 
   return (
     <article className="prose lg:prose-xl mx-auto">
-      <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 mb-8">
+      <Card>
         <div className="flex">
           <Image
             alt="Barry Michael Doyle Profile Picture"
@@ -101,7 +103,7 @@ export default async function BlogPostPage({ params }: BlogPostpageParams) {
         >
           {markdown}
         </Markdown>
-      </div>
+      </Card>
     </article>
   );
 }

@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 
 import { ContactForm } from "./components/ContactForm";
+import { Card } from "@/components/Card";
 
 export const metadata: Metadata = {
   title: "Contact - Barry Michael Doyle",
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="relative shadow max-w-md w-full mx-auto bg-white dark:bg-gray-800 p-8 border-2 border-primary rounded-lg">
+    <Card className="relative max-w-md w-full mx-auto">
       <h2 className="text-3xl font-extrabold mb-4 text-gray-800 dark:text-white">
         Get in touch<span className="ml-3">📬</span>
       </h2>
@@ -21,6 +22,6 @@ export default function ContactPage() {
         compelling projects and roles.
       </p>
       <ContactForm />
-    </div>
+    </Card>
   );
 }

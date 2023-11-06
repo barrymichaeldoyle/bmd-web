@@ -5,6 +5,7 @@ import Link from "next/link";
 import { renderTitle } from "./renderTitle";
 import { formatDate } from "./[uid]/utils";
 import { Metadata } from "next";
+import { Card } from "@/components/Card";
 
 export const metadata: Metadata = {
   title: "Programming Blog - Code & Insights | Barry Michael Doyle",
@@ -40,7 +41,7 @@ export default async function AllBlogPostsPage() {
           last_publication_date,
         }) => (
           <Link key={id} href={`/blog/${uid}`}>
-            <article className="mb-4 p-4 shadow-lg rounded-lg bg-white dark:bg-gray-800 cursor-pointer hover:shadow-xl hover:bg-gray-50 dark:hover:bg-gray-600 transition">
+            <Card as="article" hover>
               {data.title && (
                 <h2 className="text-2xl font-bold">
                   {renderTitle(data.title)}
@@ -57,7 +58,7 @@ export default async function AllBlogPostsPage() {
                   <span> • Updated on {formatDate(last_publication_date)}</span>
                 )}
               </div>
-            </article>
+            </Card>
           </Link>
         ),
       )}
