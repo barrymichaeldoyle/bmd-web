@@ -24,7 +24,7 @@ export default async function AllBlogPostsPage() {
       <h1 className="text-3xl font-bold mb-8">My Blog</h1>
       {posts.map(({ id, uid, data, tags }) => (
         <Link key={id} href={`/blog/${uid}`}>
-          <article className="mb-8 p-4 shadow-lg rounded-lg bg-white dark:bg-gray-800 cursor-pointer hover:shadow-xl hover:bg-gray-50 dark:hover:bg-gray-600 transition">
+          <article className="mb-4 p-4 shadow-lg rounded-lg bg-white dark:bg-gray-800 cursor-pointer hover:shadow-xl hover:bg-gray-50 dark:hover:bg-gray-600 transition">
             {data.title && (
               <h2 className="text-2xl font-bold">{renderTitle(data.title)}</h2>
             )}
