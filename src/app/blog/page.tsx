@@ -1,4 +1,4 @@
-import { Tag } from "@/components/tag";
+import { Tag } from "@/components/Tag";
 import { createClient } from "@/prismicio";
 import Link from "next/link";
 

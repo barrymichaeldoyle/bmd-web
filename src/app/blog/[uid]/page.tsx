@@ -5,7 +5,7 @@ import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 
-import { Tag } from "@/components/tag";
+import { Tag } from "@/components/Tag";
 import { createClient } from "@/prismicio";
 
 import { customRenderers } from "./customRenderers";
