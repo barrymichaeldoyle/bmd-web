@@ -12,7 +12,7 @@ const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 const classNames = {
   label: "block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2",
   input:
-    "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-600 leading-tight focus:outline-none focus:shadow-outline transition duration-300 ease-in-out focus:border-blue-500 dark:focus:border-blue-400",
+    "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 bg-green-50 dark:bg-gray-800 border-gray-300 dark:border-gray-600 leading-tight focus:outline-none focus:shadow-outline transition duration-300 ease-in-out focus:border-primary focus:shadow-md dark:focus:border-primary",
 };
 
 const initialState = {

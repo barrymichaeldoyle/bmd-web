@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <>
-      <div className="bg-[#63FBB4] shadow-lg dark:bg-gray-900 mt-[-32px] mx-[-32px] py-12 mb-8 lg:mx-4 lg:rounded-lg">
+      <div className="bg-primary shadow-lg dark:bg-gray-900 mt-0 mx-[-32px] py-12 mb-8 lg:mx-4 lg:rounded-lg">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center text-gray-900 dark:text-gray-100 leading-relaxed">
           Crafting Future-Ready
           <br />
@@ -26,7 +26,7 @@ export default function Home() {
                 height={150}
                 src="/profile.png"
                 alt="Barry Michael Doyle Profile Picture"
-                className="rounded-full border-4 border-[#63FBB4] shadow-md"
+                className="rounded-full border-4 border-primary shadow-md"
                 priority
               />
             </div>

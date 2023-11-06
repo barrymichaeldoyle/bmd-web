@@ -48,7 +48,7 @@ export default async function BlogPostPage({
     await getBlogPost(params.uid);
 
   return (
-    <article className="prose lg:prose-xl mx-auto p-4">
+    <article className="prose lg:prose-xl mx-auto">
       <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 mb-8">
         <div className="flex">
           <Image
@@ -57,11 +57,11 @@ export default async function BlogPostPage({
             width={60}
             height={60}
             priority
-            className="rounded-full border-4 border-[#63FBB4] shadow-md"
+            className="rounded-full border-4 border-primary shadow-lg"
           />
           <div className="flex flex-col justify-center ml-4">
             <span className="font-bold text-lg">Barry Michael Doyle</span>
-            <div className="text-gray-500 dark:text-gray-300 font-light text-xs">
+            <div className="text-gray-600 dark:text-gray-300 font-light text-xs">
               <span>Posted on {formatDate(firstPublicationDate)}</span>
               {firstPublicationDate !== lastPublicationDate && (
                 <span> • Updated on {formatDate(lastPublicationDate)}</span>
@@ -71,19 +71,19 @@ export default async function BlogPostPage({
         </div>
 
         {title && <Title title={title} />}
-        <div className="my-4">
+        <div className="mt-4 mb-8">
           {tags.map((tag) => (
             <Tag key={tag} tag={tag} />
           ))}
         </div>
+        <Markdown
+          components={customRenderers}
+          rehypePlugins={[rehypeRaw]}
+          remarkPlugins={[remarkGfm]}
+        >
+          {markdown}
+        </Markdown>
       </div>
-      <Markdown
-        components={customRenderers}
-        rehypePlugins={[rehypeRaw]}
-        remarkPlugins={[remarkGfm]}
-      >
-        {markdown}
-      </Markdown>
     </article>
   );
 }
