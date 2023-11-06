@@ -13,6 +13,8 @@ import ThemeToggle from "@/components/ThemeToggle";
 import "../styles/globals.css";
 
 import { Providers } from "./providers";
+import { PrismicPreview } from "@prismicio/next";
+import { repositoryName } from "@/prismicio";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -84,6 +86,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
             </div>
           </footer>
         </Providers>
+        {repositoryName && <PrismicPreview repositoryName={repositoryName} />}
         <Analytics />
       </body>
     </html>
