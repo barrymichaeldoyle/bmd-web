@@ -3,6 +3,7 @@ const nextConfig = {
   experimental: {
     taint: true,
   },
+  cleanDistDir: true,
   images: {
     remotePatterns: [
       {

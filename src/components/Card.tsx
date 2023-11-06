@@ -4,6 +4,7 @@ interface CardProps {
   as?: keyof JSX.IntrinsicElements;
   className?: string;
   hover?: boolean;
+  noPadding?: boolean;
 }
 
 export function Card({
@@ -11,9 +12,12 @@ export function Card({
   children,
   className,
   hover = false,
+  noPadding = false,
 }: PropsWithChildren<CardProps>) {
   const styles = [
-    "bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 mb-8 transition border-2 border-primary mx-2",
+    `bg-white dark:bg-gray-800 shadow-lg rounded-lg p-${
+      noPadding ? "0" : "6"
+    } mb-8 transition border-2 border-primary mx-2`,
   ];
   if (hover)
     styles.push("hover:shadow-xl hover:bg-green-50 dark:hover:bg-gray-600");

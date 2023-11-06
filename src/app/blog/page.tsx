@@ -23,6 +23,7 @@ async function getAllBlogPosts() {
       pageSize: 100,
     });
   } catch (e) {
+    console.error("Error fetching blog posts:", e);
     throw new Error("Failed to fetch blog posts");
   }
 }
@@ -43,7 +44,7 @@ export default async function AllBlogPostsPage() {
           last_publication_date,
         }) => (
           <Link key={id} href={`/blog/${uid}`}>
-            <Card as="article" hover className="p-0">
+            <Card as="article" hover noPadding>
               {data.cover_image?.url && (
                 <Image
                   alt={data.cover_image.alt || data.title || "Blog Post Image"}
