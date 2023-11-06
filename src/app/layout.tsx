@@ -12,6 +12,7 @@ import ThemeToggle from "@/components/ThemeToggle";
 import "../styles/globals.css";
 
 import { Providers } from "./providers";
+import { FooterLink } from "@/components/FooterLink";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,7 +25,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en" className={GeistSans.className} suppressHydrationWarning>
       <body
-        className={`${inter.className} font-sans bg-green-100 dark:bg-black`}
+        className={`${inter.className} font-sans bg-green-100 dark:bg-black flex flex-col min-h-screen`}
       >
         <Providers>
           <header className="bg-green-100 dark:bg-black">
@@ -61,9 +62,27 @@ export default function RootLayout({ children }: PropsWithChildren) {
               </div>
             </div>
           </header>
-          <main className="max-w-7xl mx-auto pt-2 pb-6 sm:px-6 lg:px-8">
-            {children}
+          <main className="flex-grow">
+            <div className="max-w-7xl mx-auto pt-2 pb-6 sm:px-6 lg:px-8">
+              {children}
+            </div>
           </main>
+          <footer className="bg-green-200 dark:bg-gray-800 border-t border-green-300 dark:border-gray-700">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="py-8 flex justify-center md:justify-between items-center flex-col md:flex-row">
+                <div className="flex flex-wrap justify-center mb-4 md:mb-0">
+                  <FooterLink href="/blog">Blog</FooterLink>
+                  <FooterLink href="/contact">Contact</FooterLink>
+                </div>
+                <div className="mt-4 md:mt-0">
+                  <p className="text-center text-green-600 dark:text-primary text-xs">
+                    © {new Date().getFullYear()} Barry Michael Doyle. All
+                    rights reserved.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </footer>
         </Providers>
         <Analytics />
       </body>
