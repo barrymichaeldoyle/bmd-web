@@ -1,7 +1,9 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { LottieRefCurrentProps } from "lottie-react";
 import { useFormState } from "react-dom";
+import { useEffect, useRef } from "react";
 
 import { submit } from "../actions";
 import confetti from "./confetti.json";
@@ -20,7 +22,14 @@ const initialState = {
 };
 
 export function ContactForm() {
+  const confettiRef = useRef<LottieRefCurrentProps>(null);
   const [state, formAction] = useFormState(submit, initialState);
+
+  useEffect(() => {
+    if (state.success) {
+      confettiRef.current?.play();
+    }
+  }, [state.success]);
 
   function displayErrorMessage() {
     if (!state?.message) {
@@ -44,65 +53,68 @@ export function ContactForm() {
     ) : null;
   }
 
-  if (state.success) {
-    return (
-      <>
+  return (
+    <>
+      {state.success ? (
         <p
           className="mt-4 text-center text-green-600 dark:text-green-400"
           role="alert"
         >
           Message sent! I&apos;ll be in touch soon.
         </p>
-        <div className="absolute inset-0">
-          <Lottie animationData={confetti} loop={false} />
-        </div>
-      </>
-    );
-  }
-
-  return (
-    <form action={formAction}>
-      <div className="mb-4">
-        <label htmlFor="name" className={classNames.label}>
-          Name
-        </label>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          required
-          className={classNames.input}
+      ) : (
+        <form action={formAction}>
+          <div className="mb-4">
+            <label htmlFor="name" className={classNames.label}>
+              Name
+            </label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              required
+              className={classNames.input}
+            />
+            {errorMessageForField("name")}
+          </div>
+          <div className="mb-4">
+            <label htmlFor="email" className={classNames.label}>
+              Email
+            </label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              required
+              className={classNames.input}
+            />
+            {errorMessageForField("email")}
+          </div>
+          <div className="mb-6">
+            <label htmlFor="message" className={classNames.label}>
+              Message
+            </label>
+            <textarea
+              name="message"
+              id="message"
+              required
+              rows={4}
+              className={classNames.input}
+            />
+            {errorMessageForField("message")}
+          </div>
+          <SubmitButton />
+          {displayErrorMessage()}
+        </form>
+      )}
+      <div className="absolute inset-0 pointer-events-none">
+        <Lottie
+          lottieRef={confettiRef}
+          animationData={confetti}
+          autoplay={false}
+          loop={false}
         />
-        {errorMessageForField("name")}
       </div>
-      <div className="mb-4">
-        <label htmlFor="email" className={classNames.label}>
-          Email
-        </label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          required
-          className={classNames.input}
-        />
-        {errorMessageForField("email")}
-      </div>
-      <div className="mb-6">
-        <label htmlFor="message" className={classNames.label}>
-          Message
-        </label>
-        <textarea
-          name="message"
-          id="message"
-          required
-          rows={4}
-          className={classNames.input}
-        />
-        {errorMessageForField("message")}
-      </div>
-      <SubmitButton />
-      {displayErrorMessage()}
-    </form>
+    </>
   );
 }
