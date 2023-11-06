@@ -1,14 +1,18 @@
-import { createClient } from "@/prismicio";
 import { asText } from "@prismicio/client";
+import { Metadata, ResolvingMetadata } from "next";
+import Image from "next/image";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 
+import { Tag } from "@/components/tag";
+import { createClient } from "@/prismicio";
+
 import { customRenderers } from "./customRenderers";
 import { formatDate } from "./utils";
-import { Tag } from "@/components/tag";
-import Image from "next/image";
 import { Title } from "./Title";
+
+type BlogPostpageParams = { params: { uid: string } };
 
 async function getBlogPost(uid: string) {
   "use server";
@@ -39,11 +43,25 @@ export async function generateStaticParams() {
   }
 }
 
-export default async function BlogPostPage({
-  params,
-}: {
-  params: { uid: string };
-}) {
+export async function generateMetadata(
+  { params }: BlogPostpageParams,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  "use server";
+  try {
+    const post = await createClient().getByUID("blog_post", params.uid, {});
+
+    const title = post.data.meta_title || (await parent).title;
+    const description =
+      post.data.meta_description || (await parent).description;
+
+    return { title, description };
+  } catch (e) {
+    throw new Error("Failed to generate metadata for blog post");
+  }
+}
+
+export default async function BlogPostPage({ params }: BlogPostpageParams) {
   const { markdown, title, tags, firstPublicationDate, lastPublicationDate } =
     await getBlogPost(params.uid);
 
