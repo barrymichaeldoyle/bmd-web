@@ -1,18 +1,19 @@
-import { InlineCodeBlock } from "@/components/InlineCodeBlock";
 import Image from "next/image";
 import { Components } from "react-markdown";
 import { Prism } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
+import { InlineCodeBlock } from "@/components/InlineCodeBlock";
+
 export const customRenderers: Components = {
   h1({ node, ...props }) {
-    return <h1 className="text-3xl font-bold mt-10 mb-5" {...props} />;
+    return <h1 className="text-3xl font-bold mt-12 mb-5" {...props} />;
   },
   h2({ node, ...props }) {
-    return <h2 className="text-2xl font-bold mt-8 mb-3" {...props} />;
+    return <h2 className="text-2xl font-bold mt-10 mb-3" {...props} />;
   },
   h3({ node, ...props }) {
-    return <h3 className="text-xl font-bold mt-6 mb-3" {...props} />;
+    return <h3 className="text-xl font-bold mt-8 mb-3" {...props} />;
   },
   p({ node, ...props }) {
     return <p className="my-4" {...props} />;
@@ -36,23 +37,23 @@ export const customRenderers: Components = {
   },
   ol({ node, children, ...props }) {
     return (
-      <ol className="list-decimal list-inside my-2" {...props}>
+      <ol className="list-decimal my-6 pl-6" {...props}>
         {children}
       </ol>
     );
   },
-  ul({ node, children, ...props }) {
-    return (
-      <ul className="list-disc list-inside my-2" {...props}>
-        {children}
-      </ul>
-    );
-  },
   li({ node, children, ...props }) {
     return (
-      <li className="ml-4 my-2" {...props}>
+      <li className="my-2 pl-1" {...props}>
         {children}
       </li>
+    );
+  },
+  ul({ node, children, ...props }) {
+    return (
+      <ul className="list-disc my-6 pl-6" {...props}>
+        {children}
+      </ul>
     );
   },
   blockquote({ node, children, ...props }) {
@@ -72,7 +73,6 @@ export const customRenderers: Components = {
     const width = Number(substrings[1]?.match(/(?<=w:\s?)\d+/g)?.[0]) || 800;
     const height = Number(substrings[1]?.match(/(?<=h:\s?)\d+/g)?.[0]) || 400;
 
-    // return <img className="my-4" {...props} />;
     return (
       <Image
         src={props.src || ""}
