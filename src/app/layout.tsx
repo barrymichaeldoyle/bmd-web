@@ -27,7 +27,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en" className={GeistSans.className} suppressHydrationWarning>
       <body
-        className={`${inter.className} font-sans bg-gray-100 dark:bg-black flex flex-col min-h-screen`}
+        className={`${inter.className} font-sans bg-gray-100 dark:bg-black flex flex-col min-h-screen overscroll-none`}
       >
         <Providers>
           <header className="bg-gray-100 dark:bg-black">
