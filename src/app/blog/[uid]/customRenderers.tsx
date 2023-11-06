@@ -14,6 +14,9 @@ export const customRenderers: Components = {
   h3({ node, ...props }) {
     return <h3 className="text-xl font-bold mt-6 mb-3" {...props} />;
   },
+  p({ node, ...props }) {
+    return <p className="my-4" {...props} />;
+  },
   code(props) {
     const { children, className } = props;
     const match = /language-(\w+)/.exec(className || "");
@@ -33,21 +36,21 @@ export const customRenderers: Components = {
   },
   ol({ node, children, ...props }) {
     return (
-      <ol className="list-decimal list-inside" {...props}>
+      <ol className="list-decimal list-inside my-2" {...props}>
         {children}
       </ol>
     );
   },
   ul({ node, children, ...props }) {
     return (
-      <ul className="list-disc list-inside" {...props}>
+      <ul className="list-disc list-inside my-2" {...props}>
         {children}
       </ul>
     );
   },
   li({ node, children, ...props }) {
     return (
-      <li className="ml-4" {...props}>
+      <li className="ml-4 my-2" {...props}>
         {children}
       </li>
     );

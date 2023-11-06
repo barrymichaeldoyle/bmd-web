@@ -7,11 +7,11 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "stackoverflow.com",
+        hostname: "dev-to-uploads.s3.amazonaws.com",
       },
       {
         protocol: "https",
-        hostname: "dev-to-uploads.s3.amazonaws.com",
+        hostname: "images.prismic.io",
       },
     ],
   },

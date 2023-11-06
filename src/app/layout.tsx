@@ -40,7 +40,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
                         alt="BMD Logo"
                         src="/bmd.png"
                         width={128}
-                        height={61}
+                        height={62}
                         className="rounded-lg"
                         style={{ height: "auto" }}
                         priority

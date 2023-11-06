@@ -7,6 +7,7 @@ import { createClient } from "@/prismicio";
 
 import { renderTitle } from "./renderTitle";
 import { formatDate } from "./utils";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Programming Blog - Code & Insights | Barry Michael Doyle",
@@ -18,7 +19,7 @@ async function getAllBlogPosts() {
   "use server";
   try {
     return await createClient().getAllByType("blog_post", {
-      fetch: ["blog_post.title"],
+      fetch: ["blog_post.title", "blog_post.cover_image"],
       pageSize: 100,
     });
   } catch (e) {
@@ -42,22 +43,36 @@ export default async function AllBlogPostsPage() {
           last_publication_date,
         }) => (
           <Link key={id} href={`/blog/${uid}`}>
-            <Card as="article" hover>
-              {data.title && (
-                <h2 className="text-2xl font-bold">
-                  {renderTitle(data.title)}
-                </h2>
+            <Card as="article" hover className="p-0">
+              {data.cover_image?.url && (
+                <Image
+                  alt={data.cover_image.alt || data.title || "Blog Post Image"}
+                  src={data.cover_image.url}
+                  width={data.cover_image.dimensions.width}
+                  height={data.cover_image.dimensions.height}
+                  className="w-full rounded-t-md"
+                />
               )}
-              <div className="mt-2">
-                {tags.map((tag) => (
-                  <Tag key={tag} tag={tag} />
-                ))}
-              </div>
-              <div className="text-gray-600 dark:text-gray-300 font-light text-xs pt-2 pl-2">
-                <span>Posted on {formatDate(first_publication_date)}</span>
-                {first_publication_date !== last_publication_date && (
-                  <span> • Updated on {formatDate(last_publication_date)}</span>
+              <div className="p-4">
+                {data.title && (
+                  <h2 className="text-2xl font-bold">
+                    {renderTitle(data.title)}
+                  </h2>
                 )}
+                <div className="mt-2">
+                  {tags.map((tag) => (
+                    <Tag key={tag} tag={tag} />
+                  ))}
+                </div>
+                <div className="text-gray-600 dark:text-gray-300 font-light text-xs pt-2 pl-2">
+                  <span>Posted on {formatDate(first_publication_date)}</span>
+                  {first_publication_date !== last_publication_date && (
+                    <span>
+                      {" "}
+                      • Updated on {formatDate(last_publication_date)}
+                    </span>
+                  )}
+                </div>
               </div>
             </Card>
           </Link>
