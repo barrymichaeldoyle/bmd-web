@@ -1,7 +1,7 @@
 import { PrismicPreview } from "@prismicio/next";
 import { Analytics } from "@vercel/analytics/react";
 import { GeistSans } from "geist/font";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { PropsWithChildren } from "react";
 
@@ -20,6 +20,10 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Barry Michael Doyle",
   description: "Portfolio and blog for Barry Michael Doyle",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#63fbb4",
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {
