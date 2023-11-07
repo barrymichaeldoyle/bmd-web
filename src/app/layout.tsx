@@ -3,6 +3,8 @@ import { Analytics } from "@vercel/analytics/react";
 import { GeistSans } from "geist/font";
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import Image from "next/image";
+import Link from "next/link";
 import { PropsWithChildren } from "react";
 
 import { FooterLink } from "@/components/FooterLink";
@@ -12,8 +14,6 @@ import { repositoryName } from "@/prismicio";
 import "../styles/globals.css";
 
 import { Providers } from "./providers";
-import Link from "next/link";
-import Image from "next/image";
 
 const inter = Inter({ subsets: ["latin"] });
 
