@@ -3,9 +3,7 @@
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { FaSun, FaMoon, FaCircle } from "react-icons/fa";
-
-const className =
-  "px-4 py-3 bg-buttons ml-2 border-transparent border-2 hover:border-primary dark:hover:bg-gray-700 dark:hover:text-white rounded-md hover:bg-white hover:shadow-md transition";
+import { navButtonClassName } from "../../styles";
 
 export default function ThemeToggle() {
   const { theme, setTheme } = useTheme();
@@ -17,7 +15,7 @@ export default function ThemeToggle() {
 
   return (
     <button
-      className={className}
+      className={navButtonClassName}
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       aria-label="Theme Toggle"
     >
