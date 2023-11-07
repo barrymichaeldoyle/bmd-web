@@ -1,11 +1,13 @@
 "use client";
+import dynamic from "next/dynamic";
 import { FaHamburger, FaTimes } from "react-icons/fa";
 
 import { navButtonClassName } from "../../styles";
 import { NavItem } from "./NavItem";
 import ThemeToggle from "./ThemeToggle";
 import { useNavigation } from "./useNavigation";
-import { MobileMenu } from "./MobileMenu";
+
+const MobileMenu = dynamic(() => import("./MobileMenu"), {});
 
 export function Navigation() {
   const { isMenuOpen, toggleMenu } = useNavigation();

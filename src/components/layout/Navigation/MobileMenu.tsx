@@ -10,7 +10,10 @@ const navItems = [
   { href: "/contact", text: "Contact Me" },
 ];
 
-export function MobileMenu({ isMenuOpen, toggleMenu }: MobileMenuProps) {
+export default function MobileMenu({
+  isMenuOpen,
+  toggleMenu,
+}: MobileMenuProps) {
   const tabIndex = isMenuOpen ? 0 : -1;
 
   return (
