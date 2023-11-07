@@ -3,16 +3,25 @@ import Link from "next/link";
 import { Logo } from "./Logo";
 
 interface LogoLinkProps {
+  onClick?: () => void;
   priority?: boolean;
+  tabIndex?: number;
   textClassName?: string;
 }
 
 export function LogoLink({
-  textClassName = "",
+  onClick,
   priority = false,
+  tabIndex = 0,
+  textClassName = "",
 }: LogoLinkProps) {
   return (
-    <Link className="flex items-center w-fit" href="/">
+    <Link
+      className="flex items-center w-fit"
+      href="/"
+      onClick={onClick}
+      tabIndex={tabIndex}
+    >
       <div className="flex justify-center items-center bg-black rounded-md">
         <Logo priority={priority} />
       </div>

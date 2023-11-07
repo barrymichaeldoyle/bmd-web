@@ -5,7 +5,11 @@ import { useEffect, useState } from "react";
 import { FaSun, FaMoon, FaCircle } from "react-icons/fa";
 import { navButtonClassName } from "../../styles";
 
-export default function ThemeToggle() {
+interface ThemeToggleProps {
+  tabIndex?: number;
+}
+
+export default function ThemeToggle({ tabIndex }: ThemeToggleProps) {
   const { theme, setTheme } = useTheme();
   const [isMounted, setIsMounted] = useState(false);
 
@@ -18,6 +22,7 @@ export default function ThemeToggle() {
       className={navButtonClassName}
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       aria-label="Theme Toggle"
+      tabIndex={tabIndex}
     >
       {!isMounted ? (
         <FaCircle />

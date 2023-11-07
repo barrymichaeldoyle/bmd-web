@@ -1,4 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+
+import { useCloseMenuOnEscape } from "./hooks/useCloseMenuOnEscape";
+import { useDisableFocusableElementsOnMenuOpen } from "./hooks/useDisableFocusableElementsOnMenuOpen";
+import { useDisableScrollOnMenuOpen } from "./hooks/useDisableScrollOnMenuOpen";
 
 export function useNavigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -7,24 +11,10 @@ export function useNavigation() {
     setIsMenuOpen((prev) => !prev);
   }
 
-  useEffect(() => {
-    if (!isMenuOpen) {
-      return;
-    }
-
-    function keyDownHandler(e: globalThis.KeyboardEvent) {
-      if (isMenuOpen && e.key === "Escape") {
-        e.preventDefault();
-        toggleMenu();
-      }
-    }
-
-    document.addEventListener("keydown", keyDownHandler);
-
-    return () => {
-      document.removeEventListener("keydown", keyDownHandler);
-    };
-  }, [isMenuOpen]);
+  // a11y hooks
+  useCloseMenuOnEscape({ isMenuOpen, toggleMenu });
+  useDisableFocusableElementsOnMenuOpen(isMenuOpen);
+  useDisableScrollOnMenuOpen(isMenuOpen);
 
   return { isMenuOpen, toggleMenu };
 }
