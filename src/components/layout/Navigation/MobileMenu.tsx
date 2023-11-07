@@ -26,7 +26,7 @@ export function MobileMenu({ isMenuOpen, toggleMenu }: MobileMenuProps) {
         isMenuOpen ? "translate-x-0" : "translate-x-full"
       }`}
     >
-      <div className="flex items-center px-2 py-2">
+      <div className="flex items-center px-0 sm:px-2 py-2">
         <LogoLink
           textClassName="hidden sm:block"
           tabIndex={tabIndex}
