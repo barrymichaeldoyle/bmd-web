@@ -1,5 +1,5 @@
 "use client";
-import { FaHamburger } from "react-icons/fa";
+import { FaHamburger, FaTimes } from "react-icons/fa";
 
 import { navButtonClassName } from "../../styles";
 import { NavItem } from "./NavItem";
@@ -25,9 +25,9 @@ export function Navigation() {
       <button
         onClick={toggleMenu}
         className={`md:hidden ${navButtonClassName}`}
-        aria-label="Open Navigation Menu"
+        aria-label={`${isMenuOpen ? "Close" : "Open"} Navigation Menu`}
       >
-        <FaHamburger />
+        {isMenuOpen ? <FaTimes /> : <FaHamburger />}
       </button>
 
       <MobileMenu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />

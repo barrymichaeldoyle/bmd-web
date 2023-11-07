@@ -16,7 +16,7 @@ export function useDisableFocusableElementsOnMenuOpen(isMenuOpen: boolean) {
 
     if (isMenuOpen) {
       focusableElements.forEach((el) => {
-        if (!el.closest("#mobile-menu")) {
+        if (!el.closest("#mobile-menu") && !el.closest("#header")) {
           const htmlEl = el as HTMLElement;
           htmlEl.setAttribute(
             "data-previous-tabindex",

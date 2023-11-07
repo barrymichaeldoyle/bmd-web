@@ -6,13 +6,14 @@ import { Inter } from "next/font/google";
 import { PropsWithChildren } from "react";
 
 import { FooterLink } from "@/components/FooterLink";
-import { LogoLink } from "@/components/layout/LogoLink";
 import { Navigation } from "@/components/layout/Navigation/Navigation";
 import { repositoryName } from "@/prismicio";
 
 import "../styles/globals.css";
 
 import { Providers } from "./providers";
+import Link from "next/link";
+import Image from "next/image";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,11 +29,30 @@ export default function RootLayout({ children }: PropsWithChildren) {
         className={`${inter.className} font-sans bg-green-200 dark:bg-black flex flex-col min-h-screen overscroll-none`}
       >
         <Providers>
-          <header className="sticky top-0 z-10 bg-white dark:bg-black shadow border-b-2 border-primary">
+          <header
+            id="header"
+            className="sticky top-0 z-10 bg-white dark:bg-black shadow border-b-2 border-primary"
+          >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex justify-between items-center py-6">
                 <div className="lg:w-0 lg:flex-1">
-                  <LogoLink priority textClassName="hidden md:block" />
+                  <Link className="flex items-center w-fit" href="/">
+                    <div className="flex justify-center items-center bg-black rounded-md">
+                      <Image
+                        alt="BMD Logo"
+                        src="/bmd.png"
+                        width={128}
+                        height={62}
+                        className="rounded-lg height-auto"
+                        priority
+                      />
+                    </div>
+                    <h1
+                      className={`hidden sm:block text-3xl lg:text-4xl font-bold leading-tight mx-4`}
+                    >
+                      Barry Michael Doyle
+                    </h1>
+                  </Link>
                 </div>
                 <div className="flex items-center">
                   <Navigation />
