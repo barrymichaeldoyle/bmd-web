@@ -7,6 +7,7 @@ import { PropsWithChildren } from "react";
 interface NavItemProps {
   href: string;
   className?: string;
+  onClick?: () => void;
   tabIndex?: number;
 }
 
@@ -14,6 +15,7 @@ export function NavItem({
   children,
   href,
   className,
+  onClick,
   tabIndex,
 }: PropsWithChildren<NavItemProps>) {
   const pathname = usePathname();
@@ -26,6 +28,7 @@ export function NavItem({
         ${isActive ? "border-black dark:border-white" : "border-transparent"} ${
           className || ""
         }`}
+      onClick={onClick}
       tabIndex={tabIndex}
     >
       {children}

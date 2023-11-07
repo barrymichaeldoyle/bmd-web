@@ -32,7 +32,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex justify-between items-center py-6">
                 <div className="lg:w-0 lg:flex-1">
-                  <LogoLink textClassName="hidden md:block" />
+                  <LogoLink priority textClassName="hidden md:block" />
                 </div>
                 <div className="flex items-center">
                   <Navigation />
