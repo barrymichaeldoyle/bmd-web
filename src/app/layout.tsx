@@ -25,10 +25,10 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en" className={GeistSans.className} suppressHydrationWarning>
       <body
-        className={`${inter.className} font-sans bg-gray-100 dark:bg-black flex flex-col min-h-screen overscroll-none`}
+        className={`${inter.className} font-sans bg-green-200 dark:bg-black flex flex-col min-h-screen overscroll-none`}
       >
         <Providers>
-          <header className="bg-gray-100 dark:bg-black">
+          <header className="bg-white dark:bg-black shadow border-b-2 border-primary dark:border-black">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex justify-between items-center py-6">
                 <div className="lg:w-0 lg:flex-1">
@@ -41,7 +41,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
             </div>
           </header>
           <main className="flex-grow">
-            <div className="max-w-7xl mx-auto pt-2 pb-6 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto pt-6 pb-6 sm:px-6 lg:px-8">
               {children}
             </div>
           </main>

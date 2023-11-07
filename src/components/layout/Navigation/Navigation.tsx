@@ -25,6 +25,7 @@ export function Navigation() {
       <button
         onClick={toggleMenu}
         className={`md:hidden ${navButtonClassName}`}
+        aria-label="Open Navigation Menu"
       >
         <FaHamburger />
       </button>

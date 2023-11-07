@@ -71,7 +71,7 @@ export default function Home() {
             <br />
             <br />
             Beyond the office, I{" "}
-            <span className="text-green-600 dark:text-green-400 font-semibold">
+            <span className="text-green-700 dark:text-green-400 font-semibold">
               contribute to open source projects, author blog posts,
             </span>{" "}
             and engage on StackOverflow. Additionally, I create{" "}

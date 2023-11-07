@@ -38,6 +38,7 @@ export function MobileMenu({ isMenuOpen, toggleMenu }: MobileMenuProps) {
             onClick={toggleMenu}
             className={navButtonClassName}
             tabIndex={tabIndex}
+            aria-label="Close Navigation Menu"
           >
             <FaTimes w={30} h={30} />
           </button>
