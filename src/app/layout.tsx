@@ -1,4 +1,3 @@
-import { PrismicPreview } from "@prismicio/next";
 import { Analytics } from "@vercel/analytics/react";
 import { GeistSans, GeistMono } from "geist/font";
 import type { Metadata, Viewport } from "next";
@@ -9,7 +8,6 @@ import { PropsWithChildren } from "react";
 
 import { FooterLink } from "@/components/FooterLink";
 import { Navigation } from "@/components/layout/Navigation/Navigation";
-import { repositoryName } from "@/prismicio";
 
 import "../styles/globals.css";
 
@@ -90,7 +88,6 @@ export default function RootLayout({ children }: PropsWithChildren) {
             </div>
           </footer>
         </Providers>
-        {repositoryName && <PrismicPreview repositoryName={repositoryName} />}
         <Analytics />
       </body>
     </html>
