@@ -3,13 +3,11 @@ import { useState } from "react";
 import { useCloseMenuOnEscape } from "./hooks/useCloseMenuOnEscape";
 import { useDisableFocusableElementsOnMenuOpen } from "./hooks/useDisableFocusableElementsOnMenuOpen";
 import { useDisableScrollOnMenuOpen } from "./hooks/useDisableScrollOnMenuOpen";
+import { useLayoutStore } from "../store";
 
 export function useNavigation() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  function toggleMenu() {
-    setIsMenuOpen((prev) => !prev);
-  }
+  // zustand hooks
+  const { isMenuOpen, toggleMenu } = useLayoutStore();
 
   // a11y hooks
   useCloseMenuOnEscape({ isMenuOpen, toggleMenu });
