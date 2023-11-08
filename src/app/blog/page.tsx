@@ -35,14 +35,17 @@ export default async function AllBlogPostsPage() {
     <>
       <h1 className="text-3xl font-bold mb-8 text-center">My Blog</h1>
       {posts.map(
-        ({
-          id,
-          uid,
-          data,
-          tags,
-          first_publication_date,
-          last_publication_date,
-        }) => (
+        (
+          {
+            id,
+            uid,
+            data,
+            tags,
+            first_publication_date,
+            last_publication_date,
+          },
+          index,
+        ) => (
           <Link key={id} href={`/blog/${uid}`}>
             <Card as="article" hover noPadding>
               {data.cover_image?.url && (
@@ -52,6 +55,7 @@ export default async function AllBlogPostsPage() {
                   width={data.cover_image.dimensions.width}
                   height={data.cover_image.dimensions.height}
                   className="w-full rounded-t-md"
+                  priority={index < 5}
                 />
               )}
               <div className="p-4">
