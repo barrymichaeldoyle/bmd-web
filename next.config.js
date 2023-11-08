@@ -5,6 +5,7 @@ const nextConfig = {
   },
   cleanDistDir: true,
   images: {
+    minimumCacheTTL: 60,
     remotePatterns: [
       {
         protocol: "https",
