@@ -1,6 +1,6 @@
 import { PrismicPreview } from "@prismicio/next";
 import { Analytics } from "@vercel/analytics/react";
-import { GeistSans } from "geist/font";
+import { GeistSans, GeistMono } from "geist/font";
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import Image from "next/image";
@@ -28,7 +28,11 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <html lang="en" className={GeistSans.className} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${GeistSans.variable} ${GeistMono.variable}`}
+      suppressHydrationWarning
+    >
       <body
         className={`${inter.className} font-sans bg-green-200 dark:bg-black flex flex-col min-h-screen overscroll-none`}
       >

@@ -15,6 +15,10 @@ const config: Config = {
         primary: "#63fbb4",
         primaryHover: "#06e07a",
       },
+      fontFamily: {
+        sans: ["var(--font-geist-sans)"],
+        mono: ["var(--font-geist-mono)"],
+      },
     },
   },
   plugins: [],
