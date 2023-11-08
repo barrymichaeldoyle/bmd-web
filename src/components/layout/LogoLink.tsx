@@ -13,13 +13,13 @@ export function LogoLink() {
       href="/"
       onClick={isMenuOpen ? toggleMenu : undefined}
     >
-      <div className="flex justify-center items-center bg-black rounded-md">
+      <div className="flex justify-center items-center bg-black rounded-md h-[61.5px]">
         <Image
           alt="BMD Logo"
           src="/bmd.png"
           width={128}
-          height={61.5}
-          className="rounded-lg height-auto"
+          height={62}
+          className="rounded-lg"
           priority
         />
       </div>
