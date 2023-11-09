@@ -22,10 +22,12 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <html lang="en" className={GeistSans.className} suppressHydrationWarning>
-      <body
-        className={`font-sans bg-green-200 dark:bg-black flex flex-col min-h-screen overscroll-none`}
-      >
+    <html
+      lang="en"
+      className={`${GeistSans.className} overflow-hidden`}
+      suppressHydrationWarning
+    >
+      <body className="font-sans bg-green-200 dark:bg-black flex flex-col h-screen overscroll-none">
         <Providers>
           <header
             id="header"
@@ -42,7 +44,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
               </div>
             </div>
           </header>
-          <main className="flex-grow">
+          <main className="flex-grow overflow-auto">
             <div className="max-w-7xl mx-auto pt-6 pb-6 sm:px-6 lg:px-8">
               {children}
             </div>
