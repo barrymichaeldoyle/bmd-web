@@ -1,7 +1,8 @@
 import { Metadata } from "next";
 
-import { ContactForm } from "./components/ContactForm";
 import { Card } from "@/components/Card";
+
+import { ContactForm } from "./components/ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact - Barry Michael Doyle",

@@ -3,7 +3,13 @@
 import nodemailer from "nodemailer";
 import { z } from "zod";
 
-const transporter = nodemailer.createTransport({
+export interface FormState {
+  success?: boolean;
+  message?: string | null;
+  fieldErrors?: Record<string, string>;
+}
+
+export const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
     user: process.env.GMAIL_EMAIL_ADDRESS,
@@ -19,7 +25,10 @@ const schema = z.object({
     .min(10, "Your message should be at least 10 characters long."),
 });
 
-export async function submit(_prevState: any, formData: FormData) {
+export async function submit(
+  _prevState: FormState,
+  formData: FormData,
+): Promise<FormState> {
   try {
     const { email, message, name } = schema.parse({
       email: formData.get("email"),

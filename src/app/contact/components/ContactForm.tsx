@@ -5,7 +5,7 @@ import { LottieRefCurrentProps } from "lottie-react";
 import { useFormState } from "react-dom";
 import { useEffect, useRef } from "react";
 
-import { submit } from "../actions";
+import { FormState, submit } from "../actions";
 import confetti from "./confetti.json";
 import { SubmitButton } from "./SubmitButton";
 
@@ -17,9 +17,7 @@ const classNames = {
     "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-600 leading-tight focus:outline-none focus:shadow-outline transition duration-300 ease-in-out focus:border-primary focus:shadow-md dark:focus:border-primary",
 };
 
-const initialState = {
-  message: null,
-};
+const initialState: FormState = {};
 
 export function ContactForm() {
   const confettiRef = useRef<LottieRefCurrentProps>(null);
