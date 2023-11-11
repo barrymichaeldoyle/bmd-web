@@ -3,6 +3,8 @@ import { Metadata } from "next";
 import { Card } from "@/components/Card";
 
 import { ContactForm } from "./components/ContactForm";
+import Link from "next/link";
+import { FaLinkedin } from "react-icons/fa";
 
 export const metadata: Metadata = {
   title: "Contact - Barry Michael Doyle",
@@ -18,10 +20,19 @@ export default function ContactPage() {
           Get in touch<span className="ml-3">📬</span>
         </h2>
         <p className="text-gray-600 dark:text-gray-400 text-lg mb-6">
-          If you&apos;re looking for a collaborator for your next project,
-          seeking freelance services, or have exciting job opportunities, feel
-          free to get in touch using this form. I&apos;m always interested in
-          exploring compelling projects and roles.
+          Whether you&apos;re seeking a collaborator for your next project,
+          freelance services, or have job opportunities, feel free to reach out.
+          I&apos;m always open to exploring exciting projects and roles. For
+          more insights into my professional world, connect with me on{" "}
+          <Link
+            href="https://www.linkedin.com/in/barry-michael-doyle-11369683/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline"
+          >
+            LinkedIn
+          </Link>{" "}
+          where I actively engage with the community.
         </p>
         <ContactForm />
       </Card>

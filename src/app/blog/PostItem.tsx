@@ -32,7 +32,9 @@ export function PostItem({
         )}
         <div className="p-4">
           {data.title && (
-            <h2 className="text-2xl font-bold">{renderTitle(data.title)}</h2>
+            <h2 className="text-black dark:text-white text-2xl font-bold">
+              {renderTitle(data.title)}
+            </h2>
           )}
           <div className="mt-2">
             {tags.map((tag) => (

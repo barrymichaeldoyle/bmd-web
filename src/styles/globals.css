@@ -10,3 +10,19 @@ body * {
 * {
   box-sizing: border-box;
 }
+
+a {
+  @apply font-bold text-link;
+}
+
+.dark a {
+  @apply text-primary;
+}
+
+a:hover {
+  @apply text-linkHover;
+}
+
+.dark a:hover {
+  @apply text-primaryHover;
+}

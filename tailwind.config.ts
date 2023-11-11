@@ -12,6 +12,8 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        link: "#1d981b",
+        linkHover: "#26c323",
         primary: "#63fbb4",
         primaryHover: "#06e07a",
       },

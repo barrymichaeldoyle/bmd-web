@@ -24,7 +24,7 @@ export function LogoLink() {
         />
       </div>
       <h1
-        className={`hidden sm:block text-3xl lg:text-4xl font-bold leading-tight mx-4`}
+        className={`hidden sm:block text-black dark:text-white text-3xl lg:text-4xl font-bold leading-tight mx-4`}
       >
         Barry Michael Doyle
       </h1>
