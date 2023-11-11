@@ -1,5 +1,8 @@
-import { createClient } from "@/prismicio";
 import { MetadataRoute } from "next";
+
+import { createClient } from "@/prismicio";
+
+import { ALL_BLOG_POSTS_PAGE_ORDERINGS } from "./blog/actions";
 
 async function getAllBlogPosts() {
   "use server";
@@ -7,6 +10,7 @@ async function getAllBlogPosts() {
     return await createClient().getAllByType("blog_post", {
       fetch: ["blog_post.title"],
       pageSize: 100,
+      orderings: ALL_BLOG_POSTS_PAGE_ORDERINGS,
     });
   } catch (e) {
     throw new Error("Failed to fetch blog posts");
@@ -14,6 +18,7 @@ async function getAllBlogPosts() {
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  "use server";
   const posts = await getAllBlogPosts();
 
   const pages: MetadataRoute.Sitemap = [

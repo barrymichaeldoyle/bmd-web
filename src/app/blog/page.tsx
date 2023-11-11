@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
-import { getPageData } from "./actions";
+import { getAllBlogPostsPageData } from "./actions";
 import { TagSelect } from "./TagSelect";
 import { PostItem } from "./PostItem";
 
@@ -15,7 +15,9 @@ export default async function AllBlogPostsPage({
 }: {
   searchParams: { tag?: string };
 }) {
-  const { posts, tags } = await getPageData({ tag: searchParams.tag });
+  const { posts, tags } = await getAllBlogPostsPageData({
+    tag: searchParams.tag,
+  });
 
   return (
     <>
