@@ -24,10 +24,10 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html
       lang="en"
-      className={`${GeistSans.className} overflow-hidden`}
+      className={`${GeistSans.className}`}
       suppressHydrationWarning
     >
-      <body className="font-sans bg-green-200 dark:bg-black flex flex-col h-screen overscroll-none">
+      <body className="font-sans bg-green-200 dark:bg-black flex flex-col min-h-screen overscroll-none">
         <Providers>
           <header
             id="header"
@@ -44,27 +44,29 @@ export default function RootLayout({ children }: PropsWithChildren) {
               </div>
             </div>
           </header>
-          <main className="flex-grow overflow-auto">
-            <div className="max-w-7xl mx-auto pt-6 pb-6 sm:px-6 lg:px-8">
-              {children}
-            </div>
-          </main>
-          <footer className="bg-white dark:bg-gray-800 border-primary border-t-2">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="py-8 flex justify-center md:justify-between items-center flex-col md:flex-row">
-                <div className="flex flex-wrap justify-center mb-4 md:mb-0">
-                  <FooterLink href="/blog">Blog</FooterLink>
-                  <FooterLink href="/contact">Contact</FooterLink>
-                </div>
-                <div className="mt-4 md:mt-0">
-                  <p className="text-center text-primary bg-gray-800 dark:bg-gray-600 text-xs px-2 py-1 rounded-xl">
-                    © {new Date().getFullYear()} Barry Michael Doyle. All
-                    rights reserved.
-                  </p>
+          <div className="flex flex-col flex-grow overflow-auto">
+            <main className="flex-grow">
+              <div className="max-w-7xl mx-auto pt-6 pb-6 sm:px-6 lg:px-8">
+                {children}
+              </div>
+            </main>
+            <footer className="bg-white dark:bg-gray-800 border-primary border-t-2">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="py-8 flex justify-center md:justify-between items-center flex-col md:flex-row">
+                  <div className="flex flex-wrap justify-center mb-4 md:mb-0">
+                    <FooterLink href="/blog">Blog</FooterLink>
+                    <FooterLink href="/contact">Contact</FooterLink>
+                  </div>
+                  <div className="mt-4 md:mt-0">
+                    <p className="text-center text-primary bg-gray-800 dark:bg-gray-600 text-xs px-2 py-1 rounded-xl">
+                      © {new Date().getFullYear()} Barry Michael Doyle. All
+                      rights reserved.
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </footer>
+            </footer>
+          </div>
         </Providers>
         <Analytics />
       </body>

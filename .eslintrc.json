@@ -1,3 +1,7 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "rules": {
+    // This often suggests harmful side effects.
+    "react-hooks/exhaustive-deps": "off"
+  }
 }
