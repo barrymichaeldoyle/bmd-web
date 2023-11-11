@@ -1,12 +1,14 @@
 import { createClient } from "@/prismicio";
+import { Ordering } from "@prismicio/client";
 
 export async function getAllBlogPostsPageData({ tag }: { tag?: string }) {
   const [posts, tags] = await Promise.all([getBlogPosts(tag), getTags()]);
   return { posts, tags };
 }
 
-export const ALL_BLOG_POSTS_PAGE_ORDERINGS =
-  "document.first_publication_date desc";
+export const ALL_BLOG_POSTS_PAGE_ORDERINGS: Ordering[] = [
+  { field: "document.first_publication_date", direction: "desc" },
+];
 
 async function getBlogPosts(tag?: string) {
   "use server";
