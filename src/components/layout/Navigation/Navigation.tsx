@@ -6,6 +6,7 @@ import { navButtonClassName } from "../../styles";
 import { NavItem } from "./NavItem";
 import ThemeToggle from "./ThemeToggle";
 import { useNavigation } from "./useNavigation";
+import { iconStyle } from "../style";
 
 const MobileMenu = dynamic(() => import("./MobileMenu"), {});
 
@@ -13,7 +14,7 @@ export function Navigation() {
   const { isMenuOpen, toggleMenu } = useNavigation();
 
   return (
-    <nav>
+    <nav className="flex items-center">
       <div className="hidden md:inline space-x-2">
         <NavItem href="/blog">
           <span className="hidden lg:inline">My </span>Blog
@@ -29,7 +30,11 @@ export function Navigation() {
         className={`md:hidden ${navButtonClassName}`}
         aria-label={`${isMenuOpen ? "Close" : "Open"} Navigation Menu`}
       >
-        {isMenuOpen ? <FaTimes /> : <FaHamburger />}
+        {isMenuOpen ? (
+          <FaTimes style={iconStyle} />
+        ) : (
+          <FaHamburger style={iconStyle} />
+        )}
       </button>
 
       <MobileMenu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />

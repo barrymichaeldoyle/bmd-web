@@ -3,7 +3,9 @@
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { FaSun, FaMoon, FaCircle } from "react-icons/fa";
+
 import { navButtonClassName } from "../../styles";
+import { iconStyle } from "../style";
 
 interface ThemeToggleProps {
   tabIndex?: number;
@@ -25,11 +27,11 @@ export default function ThemeToggle({ tabIndex }: ThemeToggleProps) {
       tabIndex={tabIndex}
     >
       {!isMounted ? (
-        <FaCircle />
+        <FaCircle style={iconStyle} />
       ) : theme === "dark" ? (
-        <FaSun suppressHydrationWarning />
+        <FaSun style={iconStyle} />
       ) : (
-        <FaMoon />
+        <FaMoon style={iconStyle} />
       )}
     </button>
   );

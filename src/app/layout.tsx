@@ -2,8 +2,17 @@ import { Analytics } from "@vercel/analytics/react";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata, Viewport } from "next";
 import { PropsWithChildren } from "react";
+import {
+  FaDev,
+  FaGithub,
+  FaLinkedin,
+  FaStackOverflow,
+  FaTwitter,
+  FaYoutube,
+} from "react-icons/fa";
 
-import { FooterLink } from "@/components/FooterLink";
+import { FooterLink } from "@/components/layout/FooterLink";
+import { FooterSocialLink } from "@/components/layout/FooterSocialLink";
 import { LogoLink } from "@/components/layout/LogoLink";
 import { Navigation } from "@/components/layout/Navigation/Navigation";
 
@@ -56,6 +65,38 @@ export default function RootLayout({ children }: PropsWithChildren) {
                   <div className="flex flex-wrap justify-center mb-4 md:mb-0">
                     <FooterLink href="/blog">Blog</FooterLink>
                     <FooterLink href="/contact">Contact</FooterLink>
+                  </div>
+                  <div className="flex space-x-2">
+                    <FooterSocialLink
+                      aria-label="LinkedIn"
+                      href="https://www.linkedin.com/in/barry-michael-doyle-11369683/"
+                      icon={FaLinkedin}
+                    />
+                    <FooterSocialLink
+                      aria-label="GitHub"
+                      href="https://github.com/barrymichaeldoyle"
+                      icon={FaGithub}
+                    />
+                    <FooterSocialLink
+                      aria-label="Dev.to"
+                      href="https://dev.to/barrymichaeldoyle"
+                      icon={FaDev}
+                    />
+                    <FooterSocialLink
+                      aria-label="Stack Overflow"
+                      href="https://stackoverflow.com/users/2111515/barry-michael-doyle"
+                      icon={FaStackOverflow}
+                    />
+                    <FooterSocialLink
+                      aria-label="YouTube"
+                      href="https://youtube.com/@barrymichaeldoyle"
+                      icon={FaYoutube}
+                    />
+                    <FooterSocialLink
+                      aria-label="X.com"
+                      href="https://x.com/barrymdoyle"
+                      icon={FaTwitter}
+                    />
                   </div>
                   <div className="mt-4 md:mt-0">
                     <p className="text-center text-primary bg-gray-800 dark:bg-gray-600 text-xs px-2 py-1 rounded-xl">
