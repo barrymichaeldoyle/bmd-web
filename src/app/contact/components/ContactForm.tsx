@@ -5,7 +5,7 @@ import { LottieRefCurrentProps } from "lottie-react";
 import { useFormState } from "react-dom";
 import { useEffect, useRef } from "react";
 
-import { FormState, submit } from "../actions";
+import { submit } from "../actions";
 import confetti from "./confetti.json";
 import { SubmitButton } from "./SubmitButton";
 
@@ -16,6 +16,12 @@ const classNames = {
   input:
     "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-600 leading-tight focus:outline-none focus:shadow-outline transition duration-300 ease-in-out focus:border-primary focus:shadow-md dark:focus:border-primary",
 };
+
+export interface FormState {
+  success?: boolean;
+  message?: string | null;
+  fieldErrors?: Record<string, string>;
+}
 
 const initialState: FormState = {};
 

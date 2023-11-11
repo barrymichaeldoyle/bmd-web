@@ -2,14 +2,9 @@
 
 import nodemailer from "nodemailer";
 import { z } from "zod";
+import { FormState } from "./components/ContactForm";
 
-export interface FormState {
-  success?: boolean;
-  message?: string | null;
-  fieldErrors?: Record<string, string>;
-}
-
-export const transporter = nodemailer.createTransport({
+const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
     user: process.env.GMAIL_EMAIL_ADDRESS,
