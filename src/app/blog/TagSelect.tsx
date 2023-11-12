@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { ChangeEvent, useEffect } from "react";
+import { ChangeEvent, MouseEvent, useEffect } from "react";
 
 import { Select } from "@/components/Select";
 
@@ -28,10 +28,17 @@ export function TagSelect({ selectedTag, tags }: TagSelectProps) {
     }
   }
 
+  function handleSelectClick(e: MouseEvent<HTMLSelectElement>) {
+    tags.forEach((tag) => {
+      router.prefetch(`/blog?tag=${tag}`);
+    });
+  }
+
   return (
     <Select
       defaultValue={selectedTag || ""}
       onChange={handleTagChange}
+      onClick={handleSelectClick}
       options={[
         { label: "All Tags", value: "" },
         ...tags.map((tag) => ({ label: tag, value: tag })),
