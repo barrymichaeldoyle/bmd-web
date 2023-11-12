@@ -7,6 +7,7 @@ interface NavItemProps {
   href: string;
   className?: string;
   onClick?: () => void;
+  prefetch?: boolean;
   tabIndex?: number;
 }
 
@@ -15,6 +16,7 @@ export function NavItem({
   href,
   className,
   onClick,
+  prefetch,
   tabIndex,
 }: PropsWithChildren<NavItemProps>) {
   const pathname = usePathname();
@@ -28,6 +30,7 @@ export function NavItem({
           className || ""
         }`}
       onClick={onClick}
+      prefetch={prefetch}
       tabIndex={tabIndex}
     >
       {children}

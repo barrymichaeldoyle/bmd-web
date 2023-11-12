@@ -30,6 +30,7 @@ export default function MobileMenu({
             href={href}
             onClick={toggleMenu}
             tabIndex={tabIndex}
+            prefetch={isMenuOpen}
           >
             {text}
           </NavItem>
