@@ -72,6 +72,8 @@ export const customRenderers: Components = {
 
     const width = Number(substrings[1]?.match(/(?<=w:\s?)\d+/g)?.[0]) || 800;
     const height = Number(substrings[1]?.match(/(?<=h:\s?)\d+/g)?.[0]) || 400;
+    const priority =
+      substrings[1]?.match(/(?<=priority:\s?)\w+/g)?.[0] === "true";
 
     return (
       <Image
@@ -79,6 +81,7 @@ export const customRenderers: Components = {
         alt={alt}
         width={width}
         height={height}
+        priority={priority}
         className="my-4 mx-auto"
       />
     );
