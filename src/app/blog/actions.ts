@@ -32,7 +32,7 @@ async function getBlogPosts(tag?: string) {
 async function getTags() {
   "use server";
   try {
-    return await createClient().getTags();
+    return (await createClient().getTags()).sort((a, b) => a.localeCompare(b));
   } catch (e) {
     console.error("Error fetching tags:", e);
     throw new Error("Failed to fetch tags");
