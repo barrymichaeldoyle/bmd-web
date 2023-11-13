@@ -23,7 +23,7 @@ export default function MobileMenu({
         isMenuOpen ? "translate-x-0" : "translate-x-full"
       }`}
     >
-      <div className="flex flex-col mt-2 space-y-6">
+      <div className="flex flex-col mt-2 space-y-1">
         {navItems.map(({ href, text }) => (
           <NavItem
             key={href}

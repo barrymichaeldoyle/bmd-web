@@ -20,7 +20,7 @@ export function Select({
         onChange={onChange}
         onClick={onClick}
         defaultValue={defaultValue}
-        className="block appearance-none cursor-pointer w-full bg-white dark:bg-gray-800 dark:border-gray-600 hover:dark:border-primary hover:bg-green-50 border border-black hover:border-primary hover:shadow-md focus:shadow-md px-4 py-2 pr-8 rounded-lg shadow leading-tight focus:shadow-outline"
+        className="block appearance-none cursor-pointer w-full bg-white dark:bg-gray-800 dark:border-gray-600 dark:hover:border-primary hover:bg-green-50 border border-black hover:border-primary hover:shadow-md focus:shadow-md px-4 py-2 pr-8 rounded-lg shadow leading-tight focus:shadow-outline"
       >
         {options.map(({ label, value }) => (
           <option key={value} value={value}>

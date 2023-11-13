@@ -2,6 +2,7 @@ import { createClient } from "@/prismicio";
 import { Ordering } from "@prismicio/client";
 
 export async function getAllBlogPostsPageData({ tag }: { tag?: string }) {
+  "use server";
   const [posts, tags] = await Promise.all([getBlogPosts(tag), getTags()]);
   return { posts, tags };
 }

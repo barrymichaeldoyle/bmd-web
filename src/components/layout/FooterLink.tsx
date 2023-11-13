@@ -12,7 +12,7 @@ export function FooterLink({
   return (
     <Link
       href={href}
-      className="text-green-900 dark:text-white mx-2 my-1 hover:underline"
+      className="text-black dark:text-white mx-1 my-1 px-2 text-black dark:text-white hover:text-black dark:hover:text-white border-2 hover:bg-white hover:shadow-md hover:border-primary dark:hover:bg-gray-700 dark:hover:border-primary dark:hover:text-white rounded-md transition border-transparent"
     >
       {children}
     </Link>

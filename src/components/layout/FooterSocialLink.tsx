@@ -18,7 +18,7 @@ export function FooterSocialLink({
     <Link
       aria-label={ariaLabel}
       href={href}
-      className="text-green-900 dark:text-white px-2 py-1 hover:underline text-align-center border-2 border-transparent rounded-lg hover:bg-black hover:border-primary transition-none"
+      className="text-black hover:bg-white hover:text-black dark:hover:text-white dark:hover:bg-gray-700 dark:text-white px-2 py-1 hover:underline text-align-center border-2 border-transparent rounded-lg hover:bg-black hover:border-primary hover:shadow-md transition-none"
       rel="noopener noreferrer"
       target="_blank"
     >
