@@ -26,6 +26,7 @@ async function getBlogPost(uid: string) {
       lastPublicationDate: post.last_publication_date,
       tags: post.tags,
       title: post.data.title,
+      coverImage: post.data.cover_image,
     };
   } catch (e) {
     return notFound();
@@ -64,45 +65,63 @@ export async function generateMetadata(
 }
 
 export default async function BlogPostPage({ params }: BlogPostpageParams) {
-  const { markdown, title, tags, firstPublicationDate, lastPublicationDate } =
-    await getBlogPost(params.uid);
+  const {
+    coverImage,
+    markdown,
+    title,
+    tags,
+    firstPublicationDate,
+    lastPublicationDate,
+  } = await getBlogPost(params.uid);
 
   return (
     <article className="prose lg:prose-xl mx-auto">
-      <Card>
-        <div className="flex">
+      <Card noPadding>
+        {coverImage.url && (
           <Image
-            alt="Barry Michael Doyle Profile Picture"
-            src="/profile.png"
-            width={60}
-            height={60}
+            alt={coverImage.alt || title || "Blog Post Image"}
+            src={coverImage.url}
+            width={coverImage.dimensions.width}
+            height={coverImage.dimensions.height}
             priority
-            className="rounded-full border-4 border-primary shadow-lg"
+            className="w-full"
           />
-          <div className="flex flex-col justify-center ml-4">
-            <span className="font-bold text-lg">Barry Michael Doyle</span>
-            <div className="text-gray-600 dark:text-gray-300 font-light text-xs">
-              <span>Posted on {formatDate(firstPublicationDate)}</span>
-              {firstPublicationDate !== lastPublicationDate && (
-                <span> • Updated on {formatDate(lastPublicationDate)}</span>
-              )}
+        )}
+        <div className="p-6">
+          <div className="flex">
+            <Image
+              alt="Barry Michael Doyle Profile Picture"
+              src="/profile.png"
+              width={60}
+              height={60}
+              priority
+              className="rounded-full border-4 border-primary shadow-lg"
+            />
+            <div className="flex flex-col justify-center ml-4">
+              <span className="font-bold text-lg">Barry Michael Doyle</span>
+              <div className="text-gray-600 dark:text-gray-300 font-light text-xs">
+                <span>Posted on {formatDate(firstPublicationDate)}</span>
+                {firstPublicationDate !== lastPublicationDate && (
+                  <span> • Updated on {formatDate(lastPublicationDate)}</span>
+                )}
+              </div>
             </div>
           </div>
-        </div>
 
-        {title && <Title title={title} />}
-        <div className="mt-4 mb-8">
-          {tags.map((tag) => (
-            <Tag key={tag} tag={tag} />
-          ))}
+          {title && <Title title={title} />}
+          <div className="mt-4 mb-8">
+            {tags.map((tag) => (
+              <Tag key={tag} tag={tag} />
+            ))}
+          </div>
+          <Markdown
+            components={customRenderers}
+            rehypePlugins={[rehypeRaw]}
+            remarkPlugins={[remarkGfm]}
+          >
+            {markdown}
+          </Markdown>
         </div>
-        <Markdown
-          components={customRenderers}
-          rehypePlugins={[rehypeRaw]}
-          remarkPlugins={[remarkGfm]}
-        >
-          {markdown}
-        </Markdown>
       </Card>
     </article>
   );
