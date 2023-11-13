@@ -3,10 +3,10 @@ import dynamic from "next/dynamic";
 import { FaHamburger, FaTimes } from "react-icons/fa";
 
 import { navButtonClassName } from "../../styles";
+import { iconStyle } from "../style";
 import { NavItem } from "./NavItem";
 import ThemeToggle from "./ThemeToggle";
 import { useNavigation } from "./useNavigation";
-import { iconStyle } from "../style";
 
 const MobileMenu = dynamic(() => import("./MobileMenu"), {});
 

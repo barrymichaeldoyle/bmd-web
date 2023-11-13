@@ -26,5 +26,5 @@ export function useCloseMenuOnEscape({
     return () => {
       document.removeEventListener("keydown", keyDownHandler);
     };
-  }, [isMenuOpen, toggleMenu]);
+  }, [isMenuOpen]);
 }
