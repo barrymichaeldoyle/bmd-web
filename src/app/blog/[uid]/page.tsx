@@ -110,9 +110,11 @@ export default async function BlogPostPage({ params }: BlogPostpageParams) {
 
           {title && <Title title={title} />}
           <div className="mt-4 mb-8">
-            {tags.map((tag) => (
-              <Tag key={tag} tag={tag} />
-            ))}
+            {tags
+              .sort((a, b) => a.localeCompare(b))
+              .map((tag) => (
+                <Tag key={tag} tag={tag} />
+              ))}
           </div>
           <Markdown
             components={customRenderers}

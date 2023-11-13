@@ -37,9 +37,11 @@ export function PostItem({
             </h2>
           )}
           <div className="mt-2">
-            {tags.map((tag) => (
-              <Tag key={tag} tag={tag} />
-            ))}
+            {tags
+              .sort((a, b) => a.localeCompare(b))
+              .map((tag) => (
+                <Tag key={tag} tag={tag} />
+              ))}
           </div>
           <div className="text-gray-600 dark:text-gray-300 font-light text-xs pt-2 pl-2">
             <span>Posted on {formatDate(first_publication_date)}</span>
