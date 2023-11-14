@@ -67,8 +67,9 @@ export default async function AllBlogPostsPage({
           as="aside"
           className="hidden md:block h-fit min-w-[150px] max-w-[450px]"
         >
-          <h2 className="text-xl font-semibold mb-4 flex items-center">
-            Published on <FaDev className="ml-2 w-8 h-8" />
+          <h2 className="text-xl font-semibold mb-4 flex items-center space-x-1">
+            <span>Published on</span>
+            <FaDev className="ml-2 w-8 h-8" />
           </h2>
           <p className="mb-2">
             I also share my blog posts on the <strong>Dev.to</strong> community.
@@ -79,9 +80,9 @@ export default async function AllBlogPostsPage({
           </p>
           <Link
             href="https://dev.to/barrymichaeldoyle"
-            className="flex items-center space-x-2"
+            className="flex items-center space-x-1"
           >
-            <FaDev />
+            <FaDev className="w-5 h-5" />
             <span>Barry Michael Doyle on Dev.to</span>
           </Link>
         </Card>

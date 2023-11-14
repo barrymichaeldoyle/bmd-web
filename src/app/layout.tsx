@@ -54,7 +54,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
             </div>
           </header>
           <div className="flex flex-col flex-grow overflow-auto">
-            <main className="flex-grow">
+            <main className="flex-grow ambient-gradient">
               <div className="max-w-7xl mx-auto pt-6 pb-6 sm:px-6 lg:px-8">
                 {children}
               </div>

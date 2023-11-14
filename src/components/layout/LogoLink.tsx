@@ -18,7 +18,7 @@ export function LogoLink() {
           alt="BMD Logo"
           src="/bmd.png"
           width={128}
-          height={61}
+          height={62}
           style={{ width: "auto" }}
           className="rounded-lg"
           priority

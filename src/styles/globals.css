@@ -26,3 +26,27 @@ a:hover {
 .dark a:hover {
   @apply text-primaryHover;
 }
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.ambient-gradient {
+  background: linear-gradient(-45deg, #fff, #63fbb4, #fff);
+  background-size: 300% 300%;
+  animation: gradientAnimation 30s ease infinite;
+}
+
+.dark .ambient-gradient {
+  background: linear-gradient(-45deg, #000, rgb(17 24 39), #000);
+  background-size: 300% 300%;
+  animation: gradientAnimation 30s ease infinite;
+}
