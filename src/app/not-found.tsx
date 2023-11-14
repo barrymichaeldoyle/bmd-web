@@ -9,7 +9,7 @@ export default function NotFound() {
     <div className="flex flex-col items-center justify-center text-center">
       <Card>
         <Image
-          src="/where-are-you.gif" // Replace with your own 404 image if available
+          src="/where-are-you.gif"
           alt="Not Found"
           width={400}
           height={300}
