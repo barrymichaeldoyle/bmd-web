@@ -63,7 +63,10 @@ export default async function AllBlogPostsPage({
           )}
         </div>
 
-        <Card as="aside" className="hidden md:block h-fit w-[550px]">
+        <Card
+          as="aside"
+          className="hidden md:block h-fit min-w-[150px] max-w-[450px]"
+        >
           <h2 className="text-xl font-semibold mb-4 flex items-center">
             Published on <FaDev className="ml-2 w-8 h-8" />
           </h2>
