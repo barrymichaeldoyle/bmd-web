@@ -1,9 +1,7 @@
-import { useState } from "react";
-
+import { useLayoutStore } from "../store";
 import { useCloseMenuOnEscape } from "./hooks/useCloseMenuOnEscape";
 import { useDisableFocusableElementsOnMenuOpen } from "./hooks/useDisableFocusableElementsOnMenuOpen";
 import { useDisableScrollOnMenuOpen } from "./hooks/useDisableScrollOnMenuOpen";
-import { useLayoutStore } from "../store";
 
 export function useNavigation() {
   // zustand hooks
