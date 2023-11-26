@@ -43,11 +43,11 @@ export async function submit(
       console.info("Email sent successfully");
       return { success: true };
     } catch (error) {
-      return { message: "Failed to send message" };
+      return { message: "failed to send message" };
     }
   } catch (error) {
     if (error instanceof z.ZodError) {
-      console.error("Validation error: ", error.errors);
+      console.error("validation error: ", error.errors);
 
       const fieldErrors = error.errors.reduce(
         (acc: { [key: string]: string }, currError) => {
@@ -59,7 +59,7 @@ export async function submit(
 
       return { fieldErrors };
     }
-    console.error("Unexpected error: ", error);
-    return { message: "An unexpected error occurred." };
+    console.error("unexpected error: ", error);
+    return { message: "an unexpected error occurred" };
   }
 }

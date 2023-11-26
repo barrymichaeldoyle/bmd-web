@@ -32,7 +32,7 @@ const routes: prismic.ClientConfig["routes"] = [
 export function createClient(config: prismicNext.CreateClientConfig = {}) {
   if (!repositoryName) {
     throw new Error(
-      "The PRISMIC_REPOSITORY environment variable is required but was missing.",
+      "the PRISMIC_REPOSITORY environment variable is required but was missing",
     );
   }
 

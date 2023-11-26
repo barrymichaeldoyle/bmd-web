@@ -13,7 +13,8 @@ async function getAllBlogPosts() {
       orderings: ALL_BLOG_POSTS_PAGE_ORDERINGS,
     });
   } catch (e) {
-    throw new Error("Failed to fetch blog posts");
+    console.error("error fetching blog posts:", e);
+    throw new Error("failed to fetch blog posts");
   }
 }
 
@@ -27,18 +28,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1,
-    },
-    {
-      url: "https://barrymichaeldoyle.com/blog",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.5,
-    },
-    {
-      url: "https://barrymichaeldoyle.com/contact",
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.4,
     },
   ];
 

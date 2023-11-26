@@ -32,8 +32,8 @@ async function getBlogPosts(tag?: string) {
     }
     return await createClient().getAllByType("blog_post", getParams);
   } catch (e) {
-    console.error("Error fetching blog posts:", e);
-    throw new Error("Failed to fetch blog posts");
+    console.error("error fetching blog posts:", e);
+    throw new Error("failed to fetch blog posts");
   }
 }
 
@@ -42,8 +42,8 @@ async function getTags() {
   try {
     return (await createClient().getTags()).sort((a, b) => a.localeCompare(b));
   } catch (e) {
-    console.error("Error fetching tags:", e);
-    throw new Error("Failed to fetch tags");
+    console.error("error fetching tags:", e);
+    throw new Error("failed to fetch tags");
   }
 }
 
@@ -64,7 +64,7 @@ async function getTags() {
 //     );
 
 //     if (!response.ok) {
-//       console.error("Error fetching Dev.to followers:", response);
+//       console.error("error fetching Dev.to followers:", response);
 //       throw new Error(`HTTP error! status: ${response.status}`);
 //     }
 
@@ -74,7 +74,7 @@ async function getTags() {
 //     const data = await response.json();
 //     return data;
 //   } catch (e) {
-//     console.error("Error fetching Dev.to followers:", e);
-//     throw new Error("Failed to fetch Dev.to followers");
+//     console.error("error fetching Dev.to followers:", e);
+//     throw new Error("failed to fetch Dev.to followers");
 //   }
 // }
