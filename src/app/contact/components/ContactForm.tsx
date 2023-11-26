@@ -9,7 +9,7 @@ import { submit } from "../actions";
 import confetti from "./confetti.json";
 import { SubmitButton } from "./SubmitButton";
 
-const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
+const Lottie = dynamic(() => import("lottie-light-react"), { ssr: false });
 
 const classNames = {
   label: "block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2",
