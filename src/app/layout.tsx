@@ -19,6 +19,7 @@ import { Navigation } from "@/components/layout/Navigation/Navigation";
 import "../styles/globals.css";
 
 import { Providers } from "./providers";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Barry Michael Doyle",
@@ -110,6 +111,12 @@ export default function RootLayout({ children }: PropsWithChildren) {
           </div>
         </Providers>
         <Analytics />
+        <Script
+          id="adsbygoogle-init"
+          strategy="afterInteractive"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3482457944656598"
+          crossOrigin="anonymous"
+        />
       </body>
     </html>
   );
