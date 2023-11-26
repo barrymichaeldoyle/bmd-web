@@ -19,7 +19,7 @@ export default function MobileMenu({
   return (
     <div
       id="mobile-menu"
-      className={`fixed top-[111.74px] right-0 h-full z-50 transform transition-transform ease-out duration-300 w-full md:w-auto bg-white dark:bg-black p-4 ${
+      className={`fixed top-[111.74px] right-0 h-full z-50 transform transition-transform motion-reduce:transition-none ease-out duration-300 w-full md:w-auto bg-white dark:bg-black p-4 ${
         isMenuOpen ? "translate-x-0" : "translate-x-full"
       }`}
     >

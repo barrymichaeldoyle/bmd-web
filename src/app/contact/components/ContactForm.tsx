@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { LottieRefCurrentProps } from "lottie-react";
+import { LottieRefCurrentProps } from "lottie-light-react";
 import { useFormState } from "react-dom";
 import { useEffect, useRef } from "react";
 
@@ -111,7 +111,7 @@ export function ContactForm() {
           {displayErrorMessage()}
         </form>
       )}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden motion-reduce:hidden">
         <Lottie
           lottieRef={confettiRef}
           animationData={confetti}

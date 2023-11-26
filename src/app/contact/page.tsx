@@ -1,10 +1,9 @@
 import { Metadata } from "next";
+import Link from "next/link";
 
 import { Card } from "@/components/Card";
 
 import { ContactForm } from "./components/ContactForm";
-import Link from "next/link";
-import { FaLinkedin } from "react-icons/fa";
 
 export const metadata: Metadata = {
   title: "Contact - Barry Michael Doyle",

@@ -111,12 +111,14 @@ export default function RootLayout({ children }: PropsWithChildren) {
           </div>
         </Providers>
         <Analytics />
-        <Script
-          id="adsbygoogle-init"
-          strategy="afterInteractive"
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3482457944656598"
-          crossOrigin="anonymous"
-        />
+        {process.env.ENABLE_ADS === "true" && (
+          <Script
+            id="adsbygoogle-init"
+            strategy="afterInteractive"
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3482457944656598"
+            crossOrigin="anonymous"
+          />
+        )}
       </body>
     </html>
   );
