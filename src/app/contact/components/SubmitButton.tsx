@@ -8,12 +8,7 @@ export function SubmitButton() {
   const { pending } = useFormStatus();
 
   return (
-    <button
-      type="submit"
-      className={buttonClassName}
-      aria-disabled={pending}
-      disabled={pending}
-    >
+    <button type="submit" className={buttonClassName} disabled={pending}>
       {pending ? (
         <>
           <FaSpinner className="animate-spin mr-2" />
