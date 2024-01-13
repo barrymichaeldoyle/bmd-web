@@ -2,17 +2,28 @@ import { Ordering } from "@prismicio/client";
 
 import { createClient } from "@/prismicio";
 
+/**
+ * Just use the last known an update this value from time to time.
+ */
+const DEFAULT_FOLLOWERS_COUNT = 5013;
+
 export async function getAllBlogPostsPageData({ tag }: { tag?: string }) {
   "use server";
-  const [postsResults, tagsResults] = await Promise.allSettled([
-    getBlogPosts(tag),
-    getTags(),
-  ]);
+  const [postsResults, tagsResults, devCommunityFollowersCountResults] =
+    await Promise.allSettled([
+      getBlogPosts(tag),
+      getTags(),
+      getDevCommunityFollowersCount(),
+    ]);
 
   const posts = postsResults.status === "fulfilled" ? postsResults.value : [];
   const tags = tagsResults.status === "fulfilled" ? tagsResults.value : [];
+  const devCommunityFollowersCount =
+    devCommunityFollowersCountResults.status === "fulfilled"
+      ? devCommunityFollowersCountResults.value
+      : DEFAULT_FOLLOWERS_COUNT;
 
-  return { posts, tags };
+  return { devCommunityFollowersCount, posts, tags };
 }
 
 export const ALL_BLOG_POSTS_PAGE_ORDERINGS: Ordering[] = [
@@ -47,34 +58,28 @@ async function getTags() {
   }
 }
 
-// TODO: Implement once support for pagination exists
-// async function getDevCommunityFollowersCount() {
-//   "use server";
-//   try {
-//     const response = await fetch(
-//       "https://dev.to/api/followers/users?page=1&per_page=1",
-//       {
-//         method: "GET",
-//         headers: {
-//           "api-key": process.env.DEV_TO_API_KEY || "",
-//           contentType: "application/json",
-//           accept: "application/vnd.forem.api-v1+json",
-//         },
-//       },
-//     );
+async function getDevCommunityFollowersCount() {
+  "use server";
+  try {
+    const response = await fetch("https://dev.to/api/users/me", {
+      method: "GET",
+      headers: {
+        "api-key": process.env.DEV_TO_API_KEY || "",
+        contentType: "application/json",
+        accept: "application/vnd.forem.api-v1+json",
+      },
+    });
 
-//     if (!response.ok) {
-//       console.error("error fetching Dev.to followers:", response);
-//       throw new Error(`HTTP error! status: ${response.status}`);
-//     }
+    if (!response.ok) {
+      console.error("error fetching Dev.to user:", response);
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
 
-//     console.log(response.headers);
-//     console.log(response.headers.get("x-total-count"));
+    const data = await response.json();
 
-//     const data = await response.json();
-//     return data;
-//   } catch (e) {
-//     console.error("error fetching Dev.to followers:", e);
-//     throw new Error("failed to fetch Dev.to followers");
-//   }
-// }
+    return data?.followers_count || DEFAULT_FOLLOWERS_COUNT;
+  } catch (e) {
+    console.error("error fetching Dev.to followers:", e);
+    throw new Error("failed to fetch Dev.to followers");
+  }
+}

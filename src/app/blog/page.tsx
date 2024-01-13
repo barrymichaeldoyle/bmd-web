@@ -21,9 +21,10 @@ export default async function AllBlogPostsPage({
 }: {
   searchParams: { tag?: string };
 }) {
-  const { posts, tags } = await getAllBlogPostsPageData({
-    tag: searchParams.tag,
-  });
+  const { devCommunityFollowersCount, posts, tags } =
+    await getAllBlogPostsPageData({
+      tag: searchParams.tag,
+    });
 
   return (
     <>
@@ -75,8 +76,11 @@ export default async function AllBlogPostsPage({
             I also share my blog posts on the <strong>Dev.to</strong> community.
             This is where I gather reactions and comments for my posts.
           </p>
-          <p className="mb-4">
+          <p className="mb-2">
             Follow me there to be notified when I post something new.
+          </p>
+          <p className="mb-4">
+            <strong>{devCommunityFollowersCount}</strong> people already do!
           </p>
           <Link
             href="https://dev.to/barrymichaeldoyle"
