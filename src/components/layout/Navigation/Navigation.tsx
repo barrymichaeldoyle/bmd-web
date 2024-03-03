@@ -14,30 +14,32 @@ export function Navigation() {
   const { isMenuOpen, toggleMenu } = useNavigation();
 
   return (
-    <nav className="flex items-center">
-      <div className="hidden md:inline space-x-2">
-        <NavItem href="/blog">
-          <span className="hidden lg:inline">My </span>Blog
-        </NavItem>
-        <NavItem href="/contact">
-          Contact<span className="hidden lg:inline"> Me</span>
-        </NavItem>
-      </div>
+    <>
+      <nav className="flex items-center pr-16">
+        <div className="hidden md:inline space-x-2">
+          <NavItem href="/blog">
+            <span className="hidden lg:inline">My </span>Blog
+          </NavItem>
+          <NavItem href="/contact">
+            Contact<span className="hidden lg:inline"> Me</span>
+          </NavItem>
+        </div>
 
-      <ThemeToggle />
-      <button
-        onClick={toggleMenu}
-        className={`md:hidden ${navButtonClassName}`}
-        aria-label={`${isMenuOpen ? "Close" : "Open"} Navigation Menu`}
-      >
-        {isMenuOpen ? (
-          <FaTimes style={iconStyle} />
-        ) : (
-          <FaHamburger style={iconStyle} />
-        )}
-      </button>
+        <button
+          onClick={toggleMenu}
+          className={`md:hidden ${navButtonClassName}`}
+          aria-label={`${isMenuOpen ? "Close" : "Open"} Navigation Menu`}
+        >
+          {isMenuOpen ? (
+            <FaTimes style={iconStyle} />
+          ) : (
+            <FaHamburger style={iconStyle} />
+          )}
+        </button>
+        <ThemeToggle />
 
-      <MobileMenu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
-    </nav>
+        <MobileMenu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
+      </nav>
+    </>
   );
 }

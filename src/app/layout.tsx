@@ -43,7 +43,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
             id="header"
             className="sticky top-0 z-10 bg-white dark:bg-black shadow border-b-2 border-primary"
           >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-6 lg:px-8">
               <div className="flex justify-between items-center py-6">
                 <div className="lg:w-0 lg:flex-1">
                   <LogoLink />
