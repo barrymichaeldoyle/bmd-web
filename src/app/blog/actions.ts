@@ -2,11 +2,6 @@ import { Ordering } from "@prismicio/client";
 
 import { createClient } from "@/prismicio";
 
-/**
- * Just use the last known an update this value from time to time.
- */
-const DEFAULT_FOLLOWERS_COUNT = 5013;
-
 export async function getAllBlogPostsPageData({ tag }: { tag?: string }) {
   "use server";
   const [postsResults, tagsResults, devCommunityFollowersCountResults] =
@@ -21,7 +16,7 @@ export async function getAllBlogPostsPageData({ tag }: { tag?: string }) {
   const devCommunityFollowersCount =
     devCommunityFollowersCountResults.status === "fulfilled"
       ? devCommunityFollowersCountResults.value
-      : DEFAULT_FOLLOWERS_COUNT;
+      : 0;
 
   return { devCommunityFollowersCount, posts, tags };
 }
@@ -68,6 +63,7 @@ async function getDevCommunityFollowersCount() {
         contentType: "application/json",
         accept: "application/vnd.forem.api-v1+json",
       },
+      next: { revalidate: 3600 },
     });
 
     if (!response.ok) {
@@ -77,7 +73,7 @@ async function getDevCommunityFollowersCount() {
 
     const data = await response.json();
 
-    return data?.followers_count || DEFAULT_FOLLOWERS_COUNT;
+    return data?.followers_count || 0;
   } catch (e) {
     console.error("error fetching Dev.to followers:", e);
     throw new Error("failed to fetch Dev.to followers");

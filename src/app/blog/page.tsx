@@ -79,9 +79,11 @@ export default async function AllBlogPostsPage({
           <p className="mb-2">
             Follow me there to be notified when I post something new.
           </p>
-          <p className="mb-4">
-            <strong>{devCommunityFollowersCount}</strong> people already do!
-          </p>
+          {devCommunityFollowersCount ? (
+            <p className="mb-4">
+              <strong>{devCommunityFollowersCount}</strong> people already do!
+            </p>
+          ) : null}
           <Link
             href="https://dev.to/barrymichaeldoyle"
             className="flex items-center space-x-1"
