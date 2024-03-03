@@ -12,7 +12,7 @@ interface ThemeToggleProps {
 }
 
 export default function ThemeToggle({ tabIndex }: ThemeToggleProps) {
-  const { theme, setTheme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -22,13 +22,13 @@ export default function ThemeToggle({ tabIndex }: ThemeToggleProps) {
   return (
     <button
       className={navButtonClassName}
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
       aria-label="Theme Toggle"
       tabIndex={tabIndex}
     >
       {!isMounted ? (
         <FaCircle style={iconStyle} />
-      ) : theme === "dark" ? (
+      ) : resolvedTheme === "dark" ? (
         <FaSun style={iconStyle} />
       ) : (
         <FaMoon style={iconStyle} />
