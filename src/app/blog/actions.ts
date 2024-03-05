@@ -63,7 +63,7 @@ async function getDevCommunityFollowersCount() {
         contentType: "application/json",
         accept: "application/vnd.forem.api-v1+json",
       },
-      next: { revalidate: 3600 },
+      next: { revalidate: 5 },
     });
 
     if (!response.ok) {
